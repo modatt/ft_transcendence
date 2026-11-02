@@ -1,0 +1,48 @@
+# ==========================================
+# Core Framework & Database
+# ==========================================
+Django>=5.1,<6.0          # Django 5.2 LTS (using >=5.1 to ensure compatibility)
+djangorestframework       # Django REST Framework for APIs
+psycopg2-binary           # PostgreSQL adapter for Python
+
+# ==========================================
+# API, CORS & Documentation
+# ==========================================
+drf-spectacular           # OpenAPI/Swagger API documentation
+django-cors-headers       # Required because React frontend is on a different port/domain
+
+# ==========================================
+# Real-time & Background Tasks
+# ==========================================
+channels                  # Django Channels for WebSockets (live data)
+channels-redis            # Redis channel layer for Channels
+celery                    # Background task queue (PDFs, emails)
+redis                     # Python client for Redis
+uvicorn[standard]         # ASGI server to run Django Channels
+
+# ==========================================
+# Authentication & Security
+# ==========================================
+django-otp                # One-time passwords for 2FA
+qrcode                    # Required by django-otp to generate QR codes for 2FA setup
+
+# ==========================================
+# Audit & Logging
+# ==========================================
+django-auditlog           # Tracks changes to models (before/after values)
+
+# ==========================================
+# 3D / Mesh Analysis
+# ==========================================
+trimesh                   # Mesh analysis (volume, bounding box, fit check)
+
+# ==========================================
+# PDF Generation
+# ==========================================
+weasyprint                # HTML to PDF converter (supports Arabic/RTL)
+
+# ==========================================
+# File Storage (Optional: For MinIO/S3)
+# ==========================================
+django-storages           # Custom storage backends for Django
+boto3                     # AWS S3 / MinIO SDK (if you choose MinIO over Docker volumes)

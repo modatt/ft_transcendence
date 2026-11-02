@@ -16,6 +16,10 @@ services:
     networks:
       - backend_net
 
+  web:
+    build: ./MakerspaceService
+    environment:
+
 networks:
   backend_net:
     driver: bridge
