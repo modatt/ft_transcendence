@@ -115,7 +115,6 @@ function MfaForm({ onSignedIn, onBack }: { onSignedIn: () => void; onBack: () =>
         autoComplete="one-time-code"
         inputMode="numeric"
         maxLength={7}
-        autoFocus
         dir="ltr"
         className="font-mono tracking-widest rtl:text-right"
         error={vm.errors.code}

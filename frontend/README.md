@@ -7,8 +7,9 @@ React + Vite + TypeScript, Tailwind CSS (colors from `src/styles/tokens.css`), R
 ```sh
 npm install
 npm run dev        # http://localhost:5173, proxies /api to http://localhost:8000 (override with VITE_API_PROXY)
-npm test           # vitest
-npm run lint       # oxlint
+npm test           # vitest: unit tests and translation checks
+npm run test:e2e   # Playwright + axe in Chrome: accessibility of every page, every language and theme
+npm run lint       # oxlint, including all jsx-a11y rules and react/jsx-no-literals
 npm run typecheck
 npm run build
 ```
@@ -36,6 +37,39 @@ Each feature folder in `src/features/` is split into three layers:
 | View | `<Screen>Page.tsx` | Components that only lay out what the ViewModel returns. No `fetch`, no business rules. |
 
 Test ViewModels with `renderHook` (see `useLoginViewModel.test.ts`), and test Views through the page (see `LoginPage.test.tsx`). Shared, feature-free UI goes in `src/components/`.
+
+## Accessibility and internationalization (every page)
+
+Targets: WCAG 2.1 AA (subject IV.2 major; NFR-25 asks for 2.2 AA), English, Arabic and French with full RTL mirroring (IV.2 minors, NFR-21 to NFR-23).
+
+**Checked automatically**
+
+| Check | Where | Catches |
+| --- | --- | --- |
+| `npm run lint` | `.oxlintrc.json` | All 36 `jsx-a11y` rules (labels, alt text, roles, no `autoFocus`, ...); `react/jsx-no-literals` flags text not passed through `t()` |
+| `npm test` | `src/i18n/i18n.test.ts` | Missing or empty translations, mismatched `{{variables}}`, hardcoded `aria-label` / `title` / `placeholder` / `alt` |
+| `npm test` | `src/routes.test.ts` | A route missing from `src/paths.ts` (so it would skip the e2e audit) |
+| `npm run test:e2e` | `e2e/a11y.spec.ts` | axe (WCAG 2.0 to 2.2 A/AA + best practices, including colour contrast) on every page in `PATHS`, in en/ar/fr and light/dark; no horizontal scroll at 320px; skip link; RTL mirroring; language switcher; theme toggle by keyboard |
+| `npm run test:e2e` | `e2e/<feature>.spec.ts` | Per-page states: error states, alerts, focus after each step, keyboard-only use |
+
+**Building a new page**
+
+1. Add its path to `src/paths.ts` and its route to `src/router.tsx`. The e2e audit then covers it in every language and theme.
+2. Every visible string, including `aria-label`, `title`, `placeholder` and `alt`, comes from `t()`, with keys in all three `locales/*.json`.
+3. Exactly one `<h1>`; headings in order; use `<button>` for actions and `<Link>` for navigation.
+4. Every input has a `<label>`; errors use `aria-invalid` and `aria-describedby` (the `TextField` component does this); form-level errors use `FormAlert` (`role="alert"`).
+5. When a step or dialog replaces content, move focus to the new content (see `useMfaViewModel`).
+6. Use logical Tailwind classes (`ms-`, `me-`, `ps-`, `pe-`, `inset-s-`, `text-start`), never `left`/`right`. Emails, codes and numbers that must stay LTR get `dir="ltr"`.
+7. Colours only from tokens; never colour alone to convey meaning (status badges always have text).
+8. Add `e2e/<feature>.spec.ts` for the page's states (errors, empty, loading, success) and run axe in each.
+
+**Check by hand before review** (tools can't)
+
+- [ ] Whole page usable with the keyboard only; focus always visible; no focus traps
+- [ ] Screen reader pass (Orca on Linux, NVDA on Windows, VoiceOver on macOS) in English and Arabic: headings, labels, errors and alerts are read correctly
+- [ ] Browser zoom at 200%: nothing cut off or overlapping
+- [ ] Arabic: layout mirrored, icons that imply direction (arrows) flipped, no truncated text
+- [ ] French: longer strings still fit buttons and headers
 
 ## Layout
 

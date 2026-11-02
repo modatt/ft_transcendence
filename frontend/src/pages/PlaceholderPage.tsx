@@ -8,7 +8,7 @@ export function PlaceholderPage({ messageKey = 'page.comingSoon' }: { messageKey
   useDocumentTitle(t(messageKey))
   return (
     <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 py-10 text-center">
-      <p className="text-lg text-text">{t(messageKey)}</p>
+      <h1 className="text-lg font-medium text-text">{t(messageKey)}</h1>
       <Link to="/login" className="text-primary hover:underline">
         {t('page.backToSignIn')}
       </Link>

@@ -1,19 +1,23 @@
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, type RouteObject } from 'react-router'
 import { AppShell } from './components/AppShell'
 import { LoginPage } from './features/auth/LoginPage'
 import { PlaceholderPage } from './pages/PlaceholderPage'
+import { PATHS } from './paths'
 
-export const router = createBrowserRouter([
+// Add every new page's path to PATHS first; routes.test.ts fails if one is missing.
+export const routes: RouteObject[] = [
   {
     element: <AppShell />,
     children: [
-      { path: '/', element: <PlaceholderPage messageKey="page.home" /> },
-      { path: '/login', element: <LoginPage /> },
-      { path: '/register', element: <PlaceholderPage /> },
-      { path: '/forgot-password', element: <PlaceholderPage /> },
-      { path: '/privacy', element: <PlaceholderPage /> },
-      { path: '/terms', element: <PlaceholderPage /> },
+      { path: PATHS.home, element: <PlaceholderPage messageKey="page.home" /> },
+      { path: PATHS.login, element: <LoginPage /> },
+      { path: PATHS.register, element: <PlaceholderPage /> },
+      { path: PATHS.forgotPassword, element: <PlaceholderPage /> },
+      { path: PATHS.privacy, element: <PlaceholderPage /> },
+      { path: PATHS.terms, element: <PlaceholderPage /> },
       { path: '*', element: <PlaceholderPage messageKey="page.notFound" /> },
     ],
   },
-])
+]
+
+export const router = createBrowserRouter(routes)

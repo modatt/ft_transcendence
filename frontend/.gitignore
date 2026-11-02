@@ -25,3 +25,7 @@ dist-ssr
 
 # Secrets
 .env
+
+# Playwright
+test-results
+playwright-report

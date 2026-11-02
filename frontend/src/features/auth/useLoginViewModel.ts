@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { type FieldError, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router'
@@ -79,11 +79,18 @@ export function useMfaViewModel({ onSignedIn }: { onSignedIn: () => void }) {
     register,
     handleSubmit,
     setError,
+    setFocus,
     formState: { errors, isSubmitting },
   } = useForm<MfaInput>({
     resolver: zodResolver(mfaSchema),
     defaultValues: { code: '' },
   })
+
+  // The step replaces the password form, so move focus to the code field; otherwise
+  // keyboard and screen-reader users are left on an element that no longer exists.
+  useEffect(() => {
+    setFocus('code')
+  }, [setFocus])
 
   const submit = handleSubmit(async (values) => {
     setSubmitError(null)
