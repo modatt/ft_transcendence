@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+/* Dark mode follows the data-theme attribute on <html>, same as tokens.css. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Semantic colors only: components never use raw hex values (SRS section 8). */
+@theme inline {
+  --color-page: var(--bg-page);
+  --color-card: var(--bg-card);
+  --color-sunken: var(--bg-sunken);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-primary-subtle: var(--primary-subtle);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-focus: var(--focus-ring);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--status-danger-bg);
+  --color-on-danger-subtle: var(--status-danger-fg);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text);
+    font-family: var(--font-sans);
+  }
+
+  :lang(ar) body {
+    font-family: var(--font-arabic);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+}

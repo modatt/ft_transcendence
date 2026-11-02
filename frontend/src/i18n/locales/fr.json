@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "The Makerspace",
+    "tagline": "Utilisation des machines et facturation"
+  },
+  "nav": {
+    "skipToContent": "Aller au contenu principal",
+    "language": "Langue",
+    "toDarkTheme": "Passer au thème sombre",
+    "toLightTheme": "Passer au thème clair"
+  },
+  "footer": {
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "copyright": "© {{year}} CPF Makerspace"
+  },
+  "auth": {
+    "fields": {
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "code": "Code de vérification"
+    },
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Utilisez votre compte Makerspace pour soumettre des travaux et consulter vos factures.",
+      "showPassword": "Afficher le mot de passe",
+      "hidePassword": "Masquer le mot de passe",
+      "forgotPassword": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "submitting": "Connexion…",
+      "noAccount": "Nouveau au Makerspace ?",
+      "register": "Créer un compte"
+    },
+    "mfa": {
+      "title": "Vérification en deux étapes",
+      "subtitle": "Saisissez le code à 6 chiffres de votre application d'authentification.",
+      "submit": "Vérifier",
+      "submitting": "Vérification…",
+      "back": "Se connecter avec un autre compte"
+    },
+    "errors": {
+      "emailRequired": "Saisissez votre adresse e-mail.",
+      "emailInvalid": "Saisissez une adresse e-mail valide, par exemple nom@exemple.com.",
+      "passwordRequired": "Saisissez votre mot de passe.",
+      "passwordTooLong": "Le mot de passe ne peut pas dépasser 128 caractères.",
+      "codeInvalid": "Saisissez les 6 chiffres de votre application d'authentification.",
+      "codeIncorrect": "Ce code ne fonctionne pas. Vérifiez l'heure de votre téléphone et réessayez.",
+      "invalidCredentials": "L'adresse e-mail ou le mot de passe est incorrect.",
+      "locked": "Trop de tentatives échouées : votre compte est temporairement verrouillé. Réessayez plus tard ou réinitialisez votre mot de passe.",
+      "tooManyAttempts": "Trop de tentatives. Patientez une minute puis réessayez.",
+      "network": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
+      "generic": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  },
+  "page": {
+    "home": "Vous êtes connecté. Votre tableau de bord arrive bientôt.",
+    "comingSoon": "Cette page arrive bientôt.",
+    "notFound": "Page introuvable",
+    "backToSignIn": "Retour à la connexion"
+  }
+}

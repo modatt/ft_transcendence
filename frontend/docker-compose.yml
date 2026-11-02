@@ -1,0 +1,27 @@
+services:
+  # Production build served by nginx. Once the main nginx (HTTPS) exists, drop the
+  # published port: nginx will reach this container at http://frontend:8080.
+  frontend:
+    build:
+      context: .
+      target: prod
+    image: makerspace_frontend
+    container_name: makerspace_frontend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+
+  # Dev server with hot reload: `docker compose --profile dev up frontend-dev`
+  # If port 5173 is taken (e.g. by a local `npm run dev`), set FRONTEND_DEV_PORT=5174.
+  frontend-dev:
+    profiles: [dev]
+    build:
+      context: .
+      target: dev
+    container_name: makerspace_frontend_dev
+    ports:
+      - "${FRONTEND_DEV_PORT:-5173}:5173"
+    volumes:
+      - ./:/app
+      # Keep the container's own node_modules instead of the host's.
+      - /app/node_modules
