@@ -25,12 +25,24 @@ docker compose --profile dev down                          # stop both
 - HTTPS is not handled here. The main nginx (infra) terminates TLS, sends `/api` to Django, and everything else to `http://frontend:8080`. When that exists, remove the published `8080` port.
 - If port 5173 is already taken by a local `npm run dev`, use `FRONTEND_DEV_PORT=5174 docker compose --profile dev up frontend-dev`.
 
+## Architecture: MVVM
+
+Each feature folder in `src/features/` is split into three layers:
+
+| Layer | Files | Rule |
+| --- | --- | --- |
+| Model | `api.ts`, `schemas.ts`, `errors.ts` | Data, server calls and validation rules. No React. |
+| ViewModel | `use<Screen>ViewModel.ts` | A hook holding the screen's state and logic. Returns ready-to-show values (translated messages, flags) and actions (`submit`, `toggle...`). No JSX. |
+| View | `<Screen>Page.tsx` | Components that only lay out what the ViewModel returns. No `fetch`, no business rules. |
+
+Test ViewModels with `renderHook` (see `useLoginViewModel.test.ts`), and test Views through the page (see `LoginPage.test.tsx`). Shared, feature-free UI goes in `src/components/`.
+
 ## Layout
 
 - `src/styles/tokens.css`: design tokens copied from `docs/tokens.css`, mapped to Tailwind colors in `src/index.css` (`bg-card`, `text-text`, `text-muted`, `bg-primary`, `text-danger`, ...). Never use hex values in components.
 - `src/i18n/`: i18next setup and `locales/{en,ar,fr}.json`. Switching language updates `<html lang dir>`.
 - `src/lib/api.ts`: `fetch` wrapper. Sends the session cookie, the `X-CSRFToken` header and `Accept-Language`, and turns DRF errors into `ApiError`.
-- `src/features/auth/`: login page with the 2FA step (FR-07), zod schemas, API calls, tests.
+- `src/features/auth/`: login page with the 2FA step (FR-07): Model (`api.ts`, `schemas.ts`, `errors.ts`), ViewModel (`useLoginViewModel.ts`), View (`LoginPage.tsx`), tests.
 
 ## Auth API contract (for the backend, SRS 5.3)
 
