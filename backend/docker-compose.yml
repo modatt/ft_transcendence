@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:16-bookworm
-    container_name: makerspace_db
+    container_name: remolab_db
     restart: always
     environment:
       POSTGRES_DB_FILE: /run/secrets/db_name
@@ -15,10 +15,67 @@ services:
       - db_password
     networks:
       - backend_net
+    healthcheck:
+      # Check readiness using the actual secret credentials
+      test: ["CMD-SHELL", "pg_isready -U $$(cat /run/secrets/db_user) -d $$(cat /run/secrets/db_name)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: makerspace_redis
+    restart: always
+    networks:
+      - backend_net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   web:
-    build: ./MakerspaceService
+    build: 
+      context: ./RemoLab
+      dockerfile: Dockerfile
+    container_name: makerspace_web
+    restart: always
+    command:
+    volumes:
+     - ./MakerspaceService:/app
+     - media_data:/app/media
+     - static_data:/app/static
     environment:
+     - .env
+    secrets:
+     - db_name
+     - db_user
+     - db_password
+     - django_secret_key
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - backend_net
+    ports:
+      - "8000:8000"
+
+  nginx:
+    image: nginx:alpine
+    container_name: makerspace_nginx
+    restart: always
+    ports:
+      - "8000:80"      # Host Port 8000 maps to Container Port 80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - media_data:/var/www/media:ro
+      - static_data:/var/www/static:ro
+    depends_on:
+      - web
+    networks:
+      - backend_net
 
 networks:
   backend_net:
@@ -28,6 +85,8 @@ networks:
 volumes:
   postgres_data:
     driver: local
+  media_data:
+  static_data:
 
 secrets:
   db_name:
@@ -36,3 +95,5 @@ secrets:
     file: ./.secrets/db_user.txt
   db_password:
     file: ./.secrets/db_password.txt
+  django_secret_key:
+    file: ./.secrets/django_secret_key.txt
