@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page not found — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Fabrication lab</span></div></a>
+    <div class="topend"><div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </header>
+
+  <main style="flex: 1 1 auto; padding: 56px 32px; display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; align-items: stretch;">
+    <section class="card dots" style="flex: 0 1 520px; padding: 40px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; background-color: #FFFFFF;" aria-labelledby="e1">
+      <span class="mono" style="font-size: 72px; line-height: 80px; color: #2E4BB4; font-weight: 500; background: #FFFFFF; padding: 0 8px; border-radius: 8px;">404</span>
+      <div class="card tight stack" style="gap: 10px; width: 100%;">
+        <h1 id="e1" class="h2">We can't find that page</h1>
+        <p class="sm muted">The link may be old, or the job or machine was removed. Check the address, or go somewhere useful:</p>
+        <div class="row" style="gap: 8px;"><a class="btn btn-primary" href="Dashboard.html">Go to my dashboard</a><a class="btn btn-secondary" href="Machines.html">See machines</a></div>
+      </div>
+    </section>
+
+    <section class="card" style="flex: 0 1 520px; padding: 40px; display: flex; flex-direction: column; gap: 18px;" aria-labelledby="e2">
+      <span class="mono" style="font-size: 72px; line-height: 80px; color: #7F32D9; font-weight: 500;">403</span>
+      <h1 id="e2" class="h2">You don't have access to this page</h1>
+      <p class="sm muted">This page is for <b>staff</b>. You're logged in as <b>Sara Khalil (customer)</b>.</p>
+      <div class="notice n-info"><span>If you work at the FabLab, ask an admin to give your account the Staff role.</span></div>
+      <div class="row" style="gap: 8px;"><a class="btn btn-primary" href="Dashboard.html">Back to my dashboard</a><a class="btn btn-secondary" href="Login.html">Log in as someone else</a></div>
+    </section>
+
+    <section class="card" style="flex: 1 1 100%; max-width: 1068px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; border-color: #FEBEBC; background: #FFF2F1;" aria-labelledby="e3">
+      <div class="stack" style="gap: 4px;"><h2 id="e3" class="h3" style="color: #680315;">Something went wrong on our side (500)</h2><p class="sm" style="color: #680315;">Your work is saved. Try again in a moment. If it keeps happening, tell staff this code: <span class="mono">ERR-7F3A-21</span></p></div>
+      <button class="btn btn-secondary">Try again</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 FabLab</span>
+    <nav aria-label="Legal"><a href="Legal.html">Privacy Policy</a><a href="Terms.html">Terms of Service</a></nav>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Certifications — Staff</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Staff</span></div></a>
+    <div class="topend">
+      <span class="badge b-success">Live</span>
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <button class="iconbtn" aria-label="Notifications, 3 unread"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot">3</span></button>
+      <span class="avatar" aria-label="Omar Haddad">OH</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Staff">
+      <a href="StaffQueue.html">Queue board</a>
+      <a href="WalkIn.html">Walk-in counter</a>
+      <a href="JobsList.html">Jobs</a>
+      <a href="RecordPayment.html">Payments and cash-up</a>
+      <a href="StaffCustomers.html">Customers</a>
+      <a class="on" href="Certifications.html">Certifications</a>
+      <span class="label">Admin</span>
+      <a href="AdminMachines.html">Machines and prices</a>
+      <a href="AdminAnalytics.html">Analytics</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Certifications</h1><p class="muted">Who may run high-risk machines on their own.</p></div>
+      </div>
+
+      <div class="grid3">
+        <div class="kpi"><span class="k">Laser cutter</span><span class="v">34</span><span class="xs muted">certified · 3 expire this month</span></div>
+        <div class="kpi"><span class="k">CNC router</span><span class="v">9</span><span class="xs muted">certified · 1 expires this month</span></div>
+        <div class="kpi"><span class="k">KUKA robotic arm</span><span class="v">0</span><span class="xs muted">staff-operated only</span></div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <section class="stack" style="flex: 999 1 560px; min-width: 0;" aria-label="Certification list">
+          <div class="row" style="align-items: flex-end;">
+            <div class="field" style="width: 240px;"><label for="q">Search</label><input id="q" placeholder="Customer name"></div>
+            <div class="field" style="width: 200px;"><label for="mt">Machine type</label><select id="mt"><option>All types</option><option>Laser cutter</option><option>CNC router</option></select></div>
+            <div class="seg" role="group" aria-label="Filter"><button class="on">All</button><button>Expiring</button><button>Expired</button></div>
+          </div>
+          <div class="tablebox">
+            <table class="t">
+              <thead><tr><th>Customer</th><th>Machine type</th><th>Signed off by</th><th>Valid until</th><th>Status</th><th class="end"><span class="sr-only">Actions</span></th></tr></thead>
+              <tbody>
+                <tr><td data-label="Customer"><b>Sara Khalil</b></td><td data-label="Machine type">Laser cutter</td><td data-label="Signed off by">Omar H.</td><td data-label="Valid until">Mar 14, 2027</td><td data-label="Status"><span class="badge b-success">Valid</span></td><td data-label="" class="end"><button class="btn btn-ghost btn-sm">Revoke</button></td></tr>
+                <tr><td data-label="Customer"><b>Ahmad Rawashdeh</b></td><td data-label="Machine type">Laser cutter</td><td data-label="Signed off by">Dina F.</td><td data-label="Valid until">Nov 20, 2026</td><td data-label="Status"><span class="badge b-warning">Expires in 17 days</span></td><td data-label="" class="end"><button class="btn btn-secondary btn-sm">Renew</button></td></tr>
+                <tr><td data-label="Customer"><b>Nour Startup · Rami</b></td><td data-label="Machine type">CNC router</td><td data-label="Signed off by">Omar H.</td><td data-label="Valid until">Nov 9, 2026</td><td data-label="Status"><span class="badge b-warning">Expires in 6 days</span></td><td data-label="" class="end"><button class="btn btn-secondary btn-sm">Renew</button></td></tr>
+                <tr><td data-label="Customer"><b>Khaled Tamimi</b></td><td data-label="Machine type">Laser cutter</td><td data-label="Signed off by">Dina F.</td><td data-label="Valid until">Oct 2, 2026</td><td data-label="Status"><span class="badge b-danger">Expired</span></td><td data-label="" class="end"><button class="btn btn-secondary btn-sm">Renew</button></td></tr>
+                <tr><td data-label="Customer"><b>Hiba Saleem</b></td><td data-label="Machine type">CNC router</td><td data-label="Signed off by">Omar H.</td><td data-label="Valid until">Jun 30, 2027</td><td data-label="Status"><span class="badge b-success">Valid</span></td><td data-label="" class="end"><button class="btn btn-ghost btn-sm">Revoke</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="card stack" style="flex: 1 1 320px; gap: 16px;" aria-labelledby="ad">
+          <h2 id="ad" class="h3">Add a certification</h2>
+          <div class="field"><label for="cu">Customer</label><input id="cu" value="Dana Nasser"></div>
+          <div class="field"><label for="ty">Machine type</label><select id="ty"><option>Laser cutter</option><option>CNC router</option></select></div>
+          <div class="field"><label for="tr">Training completed</label><select id="tr"><option>Laser safety, Nov 3</option></select></div>
+          <label class="check"><input type="checkbox" checked> Passed the practical check with staff</label>
+          <div class="field"><label for="vu">Valid for</label><select id="vu"><option>12 months</option><option>6 months</option></select></div>
+          <button class="btn btn-primary btn-block">Add certification</button>
+          <p class="xs muted">Customers without a valid certification can still order jobs; staff run the machine for them.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

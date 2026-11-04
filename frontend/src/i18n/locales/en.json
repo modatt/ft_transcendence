@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "The Makerspace",
+    "name": "FabLab",
     "tagline": "Machine usage and billing"
   },
   "nav": {
@@ -12,7 +12,7 @@
   "footer": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© {{year}} CPF Makerspace"
+    "copyright": "© {{year}} FabLab"
   },
   "auth": {
     "fields": {
@@ -22,14 +22,14 @@
     },
     "login": {
       "title": "Sign in",
-      "subtitle": "Use your Makerspace account to submit jobs and see your invoices.",
+      "subtitle": "Use your FabLab account to submit jobs and see your invoices.",
       "showPassword": "Show password",
       "hidePassword": "Hide password",
       "forgotPassword": "Forgot your password?",
       "submit": "Sign in",
       "submitting": "Signing in…",
-      "noAccount": "New to the Makerspace?",
-      "register": "Create an account"
+      "noAccount": "New to FabLab?",
+      "signup": "Create an account"
     },
     "mfa": {
       "title": "Two-step verification",

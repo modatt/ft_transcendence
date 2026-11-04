@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create account — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Fabrication lab</span></div></a>
+    <div class="topend"><span class="sm muted">Have an account?</span><a class="btn btn-secondary" href="Login.html">Log in</a><div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </header>
+
+  <main style="flex: 1 1 auto; padding: 48px 32px 64px; display: flex; justify-content: center;">
+    <form class="card" style="width: 100%; max-width: 720px; padding: 36px; display: flex; flex-direction: column; gap: 22px;" aria-labelledby="t">
+      <div class="stack" style="gap: 6px;"><h1 id="t" class="h2">Create your account</h1><p class="sm muted">It takes a minute. You can start a job right after you confirm your email.</p></div>
+
+      <fieldset style="border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+        <legend class="lbl" style="margin-bottom: 10px;">I am a</legend>
+        <div class="seg" role="group"><button type="button">Member of the public</button><button type="button" class="on">Student</button><button type="button">Company / startup</button><button type="button">Under 18</button></div>
+      </fieldset>
+
+      <div class="grid2">
+        <div class="field"><label for="fn">Full name (English)</label><input id="fn" value="Sara Khalil"></div>
+        <div class="field"><label for="fa">Full name (Arabic)</label><input id="fa" dir="rtl" value="سارة خليل"></div>
+        <div class="field"><label for="e">Email</label><input id="e" type="email" value="sara.k@student.ju.edu.jo"><span class="hint">A university email verifies student status faster.</span></div>
+        <div class="field"><label for="m">Mobile</label><input id="m" value="+962 7 9123 4567"></div>
+        <div class="field"><label for="u">University</label><select id="u"><option>University of Jordan</option></select></div>
+        <div class="field"><label for="sid">Student ID (optional)</label><input id="sid" placeholder="Upload a photo later if needed"></div>
+        <div class="field"><label for="p">Password</label><input id="p" type="password" value="••••••••••"><span class="hint">At least 10 characters. Strength: good</span></div>
+        <div class="field"><label for="g">Gender (optional)</label><select id="g"><option>Prefer not to say</option><option>Female</option><option>Male</option></select><span class="hint">Only used in anonymous totals. Never shown on invoices.</span></div>
+      </div>
+
+      <div class="field" style="max-width: 320px;"><label for="lg">Preferred language</label><select id="lg"><option>English</option><option>العربية</option><option>Français</option></select></div>
+
+      <div class="sunken" style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+        <label class="check"><input type="checkbox" checked><span>I agree to the <a href="Terms.html">Terms of Service</a>, including the failed-print and pickup policies.</span></label>
+        <label class="check"><input type="checkbox" checked><span>I have read the <a href="Legal.html">Privacy Policy</a> and agree to how my data is used.</span></label>
+      </div>
+
+      <div class="row between"><span class="sm muted">Next: confirm the link we email you.</span><a class="btn btn-primary" href="ForgotPassword.html" style="min-width: 200px;">Create account</a></div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 FabLab</span>
+    <nav aria-label="Legal"><a href="Legal.html">Privacy Policy</a><a href="Terms.html">Terms of Service</a></nav>
+  </footer>
+</div>
+</body>
+</html>

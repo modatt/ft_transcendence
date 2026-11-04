@@ -4,6 +4,7 @@ import { Button } from '../../components/Button'
 import { FormAlert } from '../../components/FormAlert'
 import { TextField } from '../../components/TextField'
 import { useDocumentTitle } from '../../lib/useDocumentTitle'
+import { PATHS } from '../../paths'
 import { useCredentialsViewModel, useLoginViewModel, useMfaViewModel } from './useLoginViewModel'
 
 // View (MVVM): layout only. State and logic live in useLoginViewModel.ts.
@@ -77,7 +78,7 @@ function CredentialsForm({ onSignedIn, onMfaRequired }: { onSignedIn: () => void
           }
           {...vm.fields.password}
         />
-        <Link to="/forgot-password" className="self-end text-sm text-primary hover:underline">
+        <Link to={PATHS.forgotPassword} className="self-end text-sm text-primary hover:underline">
           {t('auth.login.forgotPassword')}
         </Link>
       </div>
@@ -88,8 +89,8 @@ function CredentialsForm({ onSignedIn, onMfaRequired }: { onSignedIn: () => void
 
       <p className="text-center text-sm text-muted">
         {t('auth.login.noAccount')}{' '}
-        <Link to="/register" className="font-medium text-primary hover:underline">
-          {t('auth.login.register')}
+        <Link to={PATHS.signup} className="font-medium text-primary hover:underline">
+          {t('auth.login.signup')}
         </Link>
       </p>
     </form>

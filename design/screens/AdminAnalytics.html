@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Analytics — Admin</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Admin</span></div></a>
+    <div class="topend">
+      <span class="badge b-success">Live</span>
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <span class="avatar" aria-label="Lab manager">LM</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Admin">
+      <a class="on" href="AdminAnalytics.html">Analytics</a>
+      <a href="AdminMachines.html">Machines</a>
+      <a href="AdminMaterials.html">Materials</a>
+      <a href="AdminPrices.html">Prices and discounts</a>
+      <a href="AdminUsers.html">Users and roles</a>
+      <a href="AdminOrgs.html">Organizations and programs</a>
+      <a href="AdminAudit.html">Audit log</a>
+      <a href="AdminSettings.html">Settings</a>
+      <span class="label">Switch</span>
+      <a href="StaffQueue.html">Staff view</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Analytics</h1><p class="muted">October 2026 · demo data</p></div>
+        <div class="row" style="align-items: flex-end;">
+          <div class="field" style="width: 200px;"><label for="dr">Period</label><select id="dr"><option>Last 30 days</option><option>This month</option><option>Custom range</option></select></div>
+          <div class="field" style="width: 180px;"><label for="ct">Customers</label><select id="ct"><option>All categories</option><option>Students</option></select></div>
+          <button class="btn btn-secondary">Export CSV</button>
+          <button class="btn btn-primary">Export PDF</button>
+        </div>
+      </div>
+
+      <div class="grid4">
+        <div class="kpi"><span class="k">Invoiced</span><span class="v mono">1,284.560</span><span class="xs muted">JOD · 214 invoices</span></div>
+        <div class="kpi"><span class="k">Collected</span><span class="v mono">1,102.900</span><span class="xs muted">JOD · 86%</span></div>
+        <div class="kpi"><span class="k">Outstanding</span><span class="v mono" style="color: #A00023;">181.660</span><span class="xs muted">JOD · 23 invoices</span></div>
+        <div class="kpi"><span class="k">Makers served</span><span class="v">167</span><span class="xs muted">58 new this month</span></div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch;">
+        <section class="card stack" style="flex: 999 1 520px; min-width: 0;" aria-labelledby="rv">
+          <div class="row between"><h2 id="rv" class="h3">Invoiced per week (JOD)</h2><span class="xs muted">Updates as invoices are issued</span></div>
+          <div class="bars" role="img" aria-label="Weekly invoiced amounts: 238, 301, 276, 334, 135 JOD">
+            <div style="height: 62%;"><span class="bv">238</span></div><div style="height: 79%;"><span class="bv">301</span></div><div style="height: 72%;"><span class="bv">276</span></div><div style="height: 88%;"><span class="bv">334</span></div><div class="partial" style="height: 36%;"><span class="bv">135</span></div>
+          </div>
+          <div class="row between xs muted"><span>Oct 1–7</span><span>Oct 8–14</span><span>Oct 15–21</span><span>Oct 22–28</span><span>Oct 29– (so far)</span></div>
+          <div class="row xs muted" style="gap: 16px;"><span class="row" style="gap: 6px;"><i class="key"></i>Full week</span><span class="row" style="gap: 6px;"><i class="key partial"></i>This week so far</span><span>Values in JOD</span></div>
+        </section>
+        <section class="card stack" style="flex: 1 1 320px;" aria-labelledby="ag">
+          <h2 id="ag" class="h3">Unpaid by age</h2>
+          <div class="stack" style="gap: 12px;">
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>0–7 days</span><span class="mono">96.240</span></div><div class="hbar"><i style="width: 53%; background: #006880;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>8–30 days</span><span class="mono">54.010</span></div><div class="hbar"><i style="width: 30%; background: #977E00;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>31–60 days</span><span class="mono">22.500</span></div><div class="hbar"><i style="width: 12%; background: #A00023;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>Over 60 days</span><span class="mono">8.910</span></div><div class="hbar"><i style="width: 5%; background: #680315;"></i></div></div>
+          </div>
+          <a class="sm" href="RecordPayment.html" style="font-weight: 500;">Open overdue list</a>
+        </section>
+      </div>
+
+      <div class="grid2">
+        <section class="card stack" aria-labelledby="mu">
+          <h2 id="mu" class="h3">Machine hours</h2>
+          <div class="stack" style="gap: 12px;">
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>Prusa XL</span><span class="mono">142 h</span></div><div class="hbar"><i style="width: 92%;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>Ultimaker S5</span><span class="mono">118 h</span></div><div class="hbar"><i style="width: 77%;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>Trotec Speedy 400</span><span class="mono">64 h</span></div><div class="hbar"><i style="width: 42%;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>Formlabs Form 4B</span><span class="mono">31 h</span></div><div class="hbar"><i style="width: 20%;"></i></div></div>
+            <div class="stack" style="gap: 4px;"><div class="row between sm"><span>ShopBot</span><span class="mono">9 h</span></div><div class="hbar"><i style="width: 6%;"></i></div></div>
+          </div>
+          <p class="xs muted">Failed jobs this month: 7 of 241 (2.9%)</p>
+        </section>
+        <section class="card stack" aria-labelledby="ip">
+          <div class="row between"><h2 id="ip" class="h3">Who we served</h2><span class="xs muted">For donor reports</span></div>
+          <div class="tablebox">
+            <table class="t">
+              <thead><tr><th>Group</th><th class="end">Makers</th><th class="end">Share</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Group">Students</td><td data-label="Makers" class="end mono">92</td><td data-label="Share" class="end mono">55%</td></tr>
+                <tr><td data-label="Group">Public</td><td data-label="Makers" class="end mono">41</td><td data-label="Share" class="end mono">25%</td></tr>
+                <tr><td data-label="Group">SME / startup</td><td data-label="Makers" class="end mono">21</td><td data-label="Share" class="end mono">13%</td></tr>
+                <tr><td data-label="Group">Program participants</td><td data-label="Makers" class="end mono">13</td><td data-label="Share" class="end mono">8%</td></tr>
+                <tr><td data-label="Group">Female / male / not stated</td><td data-label="Makers" class="end mono">61 / 58 / 48</td><td data-label="Share" class="end mono">—</td></tr>
+                <tr><td data-label="Group">Under 18</td><td data-label="Makers" class="end muted">hidden</td><td data-label="Share" class="end muted">under 5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="xs muted">Groups smaller than 5 people are hidden so no one can be identified.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

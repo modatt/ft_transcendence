@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Log in — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Fabrication lab</span></div></a>
+    <div class="topend"><div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button></div>
+  </header>
+
+  <main class="dots" style="flex: 1 1 auto; padding: 64px 32px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start;">
+    <section class="card" style="flex: 0 1 440px; padding: 36px; display: flex; flex-direction: column; gap: 20px;" aria-labelledby="l1">
+      <div class="stack" style="gap: 6px;"><span class="xs muted">STEP 1 OF 2</span><h1 id="l1" class="h2">Log in</h1><p class="sm muted">Welcome back. Log in to submit and follow your jobs.</p></div>
+      <div class="notice n-danger" role="alert" id="lerr"><span><b>Email or password is incorrect.</b> 3 tries left before a 15-minute lock.</span></div>
+      <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="username" value="sara.k@student.ju.edu.jo" aria-invalid="true" aria-describedby="lerr"></div>
+      <div class="field"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" value="password" aria-invalid="true" aria-describedby="lerr"></div>
+      <div class="row between"><label class="check"><input type="checkbox"> Keep me logged in</label><a class="sm" href="ForgotPassword.html">Forgot password?</a></div>
+      <button class="btn btn-primary btn-block">Log in</button>
+      <div class="row" style="gap: 12px;"><span class="hr" style="flex: 1 1 auto;"></span><span class="xs muted">OR</span><span class="hr" style="flex: 1 1 auto;"></span></div>
+      <button class="btn btn-secondary btn-block">Continue with 42</button>
+      <p class="sm muted" style="text-align: center;">New here? <a href="Signup.html">Create an account</a></p>
+    </section>
+
+    <section class="card" style="flex: 0 1 440px; padding: 36px; display: flex; flex-direction: column; gap: 20px;" aria-labelledby="l2">
+      <div class="stack" style="gap: 6px;"><span class="xs muted">STEP 2 OF 2</span><h1 id="l2" class="h2">Two-factor check</h1><p class="sm muted">Enter the 6-digit code from your authenticator app. Required for staff accounts.</p></div>
+      <div class="field"><label for="c1">Authentication code</label><input id="c1" class="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" value="482"><span class="hint">Paste the code or let your phone fill it in.</span></div>
+      <label class="check"><input type="checkbox" checked> Trust this device for 30 days</label>
+      <button class="btn btn-primary btn-block">Verify and continue</button>
+      <a class="sm" href="#" style="text-align: center;">Use a backup code instead</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 FabLab</span>
+    <nav aria-label="Legal"><a href="Legal.html">Privacy Policy</a><a href="Terms.html">Terms of Service</a></nav>
+  </footer>
+</div>
+</body>
+</html>

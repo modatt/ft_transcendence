@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prusa XL — staff quick actions</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="width: 390px; min-height: 960px; display: flex; flex-direction: column;">
+  <header class="mbar">
+    <a class="brand" href="StaffQueue.html"><svg class="logo" style="width: 36px; height: 36px;" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b style="font-size: 16px;">FabLab</b><span>Staff</span></div></a>
+    <span class="avatar" aria-label="Omar Haddad">OH</span>
+  </header>
+
+  <main style="padding: 16px; display: flex; flex-direction: column; gap: 16px;">
+    <div class="stack" style="gap: 4px;">
+      <span class="xs muted">FL-PXL-01 · scanned just now</span>
+      <div class="row" style="gap: 12px; flex-wrap: nowrap;"><svg class="mthumb" style="width: 72px; height: 48px;" viewBox="0 0 320 200" role="img" aria-label="Picture of the Prusa XL" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="gqs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F5FF"/><stop offset="1" stop-color="#E0EAFF"/></linearGradient><pattern id="dqs" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#99B6FB"/></pattern></defs><rect width="320" height="200" fill="url(#gqs)"/><rect width="320" height="200" fill="url(#dqs)" opacity=".55"/><ellipse cx="160" cy="178" rx="118" ry="9" fill="#020381" opacity=".10"/>
+<rect x="86" y="26" width="10" height="150" rx="3" fill="#020381"/><rect x="224" y="26" width="10" height="150" rx="3" fill="#020381"/>
+<rect x="86" y="26" width="148" height="12" rx="3" fill="#020381"/>
+<rect x="78" y="164" width="164" height="16" rx="4" fill="#2E4BB4"/><rect x="92" y="168" width="40" height="8" rx="2" fill="#C4D6FF"/><circle cx="222" cy="172" r="4" fill="#F8D749"/>
+<rect x="96" y="70" width="128" height="7" rx="2" fill="#45484E"/>
+<rect x="140" y="56" width="26" height="30" rx="4" fill="#2E4BB4"/><rect x="146" y="62" width="14" height="6" rx="2" fill="#C4D6FF"/><path d="M149 86h8l-4 8z" fill="#45484E"/>
+<rect x="100" y="142" width="120" height="8" rx="2" fill="#B7BBC2"/><rect x="100" y="150" width="120" height="4" fill="#45484E" opacity=".5"/>
+<path d="M136 142c0-22 10-34 17-34s17 12 17 34z" fill="#F8D749"/><path d="M142 142c0-14 6-22 11-22" stroke="#E0BA31" stroke-width="2" fill="none"/>
+<circle cx="262" cy="70" r="22" fill="#4A68D8"/><circle cx="262" cy="70" r="9" fill="#E0EAFF"/><circle cx="262" cy="70" r="3" fill="#020381"/>
+<path d="M248 86c-20 6-40 -2-82 -14" stroke="#4A68D8" stroke-width="2" fill="none"/></svg><div class="row between" style="flex: 1 1 auto;"><h1 class="h2">Prusa XL</h1><span class="badge b-brand">In use</span></div></div>
+    </div>
+
+    <section class="card tight stack" style="gap: 10px;" aria-labelledby="cj">
+      <div class="row between"><h2 id="cj" class="sm" style="font-weight: 600;">Running now</h2><span class="mono xs muted">000129</span></div>
+      <span class="sm"><b>Prosthetic hand parts</b> · Hiba S.</span>
+      <div class="hbar" role="progressbar" aria-label="Progress" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><i style="width: 85%;"></i></div>
+      <span class="xs muted">Started 11:40 AM · about 30 min left</span>
+      <a class="btn btn-primary btn-block" href="CompleteJob.html">Complete job</a>
+      <div class="row" style="gap: 8px;"><button class="btn btn-secondary" style="flex: 1 1 0;">Mark failed</button><button class="btn btn-secondary" style="flex: 1 1 0;">Pause</button></div>
+    </section>
+
+    <section class="card tight stack" style="gap: 10px;" aria-labelledby="nx">
+      <h2 id="nx" class="sm" style="font-weight: 600;">Next in queue</h2>
+      <div class="row between sm"><span><span class="mono">000138</span> Drone arm ×4</span><span class="badge b-warning">Needs approval</span></div>
+      <div class="row between sm"><span><span class="mono">000140</span> Cable clips</span><span class="badge b-info">Queued</span></div>
+    </section>
+
+    <section class="card tight stack" style="gap: 10px;" aria-labelledby="ms">
+      <h2 id="ms" class="sm" style="font-weight: 600;">Machine status</h2>
+      <div class="seg" role="group" aria-label="Set status" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));"><button class="on">In use</button><button>Available</button><button>Maintenance</button><button>Out of service</button></div>
+      <div class="field"><label for="nt">Note (shown to customers)</label><input id="nt" placeholder="e.g. Back Thursday, new nozzle"></div>
+      <button class="btn btn-secondary btn-block">Log maintenance</button>
+    </section>
+
+    <section class="card tight stack" style="gap: 8px;" aria-labelledby="rp">
+      <div class="row between"><h2 id="rp" class="sm" style="font-weight: 600;">Problem reports</h2><span class="badge b-danger">1 open</span></div>
+      <span class="sm">"Bed has a scratch near the front left corner." · Sara K., today</span>
+      <div class="row" style="gap: 8px;"><button class="btn btn-ghost btn-sm">Resolve</button><button class="btn btn-ghost btn-sm">Reply</button></div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Notifications — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Customer</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <a class="iconbtn" href="Notifications.html" aria-label="Notifications, 2 unread"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot">2</span></a>
+      <span class="avatar" aria-label="Sara Khalil">SK</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Customer">
+      <a href="Dashboard.html">Dashboard</a>
+      <a href="NewJob.html">New job</a>
+      <a href="MyJobs.html">My jobs <span class="count">5</span></a>
+      <a href="Invoices.html">Invoices <span class="count">1 unpaid</span></a>
+      <a class="on" href="Notifications.html">Notifications <span class="count">2</span></a>
+      <a href="CustomerOrgs.html">Organizations</a>
+      <a href="Profile.html">Profile</a>
+    </nav>
+    <main class="content" style="max-width: 960px;">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Notifications</h1><p class="muted">Updates arrive here live. You also get them by email.</p></div>
+        <div class="row"><button class="btn btn-secondary">Mark all as read</button><a class="btn btn-ghost" href="Profile.html">Settings</a></div>
+      </div>
+      <div class="seg" role="group" aria-label="Filter" style="align-self: flex-start;"><button class="on">All</button><button>Unread 2</button><button>Jobs</button><button>Invoices</button></div>
+
+      <section class="stack" style="gap: 8px;" aria-label="Today">
+        <h2 class="xs muted">TODAY</h2>
+        <a class="card tight row" href="JobDetail.html" style="text-decoration: none; color: #15171D; border-color: #99B6FB; background: #F1F5FF; align-items: flex-start;">
+          <span class="badge b-success" style="flex: none;">Ready</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Job 000123 is ready for pickup</b><span class="sm muted">Collect your phone stand at the lab counter by Thursday, Nov 5.</span></div>
+          <span class="xs muted" style="flex: none;">12 min ago · unread</span>
+        </a>
+        <a class="card tight row" href="Invoices.html" style="text-decoration: none; color: #15171D; border-color: #99B6FB; background: #F1F5FF; align-items: flex-start;">
+          <span class="badge b-warning" style="flex: none;">Invoice</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Invoice INV-AMM-2026-00045 issued · 3.832 JOD</b><span class="sm muted">Actual use was 47 g and 3 h 26 min. Pay at the counter when you collect.</span></div>
+          <span class="xs muted" style="flex: none;">12 min ago · unread</span>
+        </a>
+        <a class="card tight row" href="JobDetail.html" style="text-decoration: none; color: #15171D; align-items: flex-start;">
+          <span class="badge b-brand" style="flex: none;">Started</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Job 000131 started on Trotec Speedy 400</b><span class="sm muted">Omar is cutting your name sign now.</span></div>
+          <span class="xs muted" style="flex: none;">40 min ago</span>
+        </a>
+        <a class="card tight row" href="JobDetail.html" style="text-decoration: none; color: #15171D; align-items: flex-start;">
+          <span class="badge b-info" style="flex: none;">Approved</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Job 000134 approved and queued</b><span class="sm muted">It starts on the Ultimaker S5 after the current print.</span></div>
+          <span class="xs muted" style="flex: none;">1 h ago</span>
+        </a>
+      </section>
+
+      <section class="stack" style="gap: 8px;" aria-label="Earlier">
+        <h2 class="xs muted">EARLIER</h2>
+        <a class="card tight row" href="MyJobs.html" style="text-decoration: none; color: #15171D; align-items: flex-start;">
+          <span class="badge b-danger" style="flex: none;">Rejected</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Job 000097 was rejected</b><span class="sm muted">Walls are thinner than 0.8 mm. Thicken them and resubmit.</span></div>
+          <span class="xs muted" style="flex: none;">Oct 28</span>
+        </a>
+        <a class="card tight row" href="Invoices.html" style="text-decoration: none; color: #15171D; align-items: flex-start;">
+          <span class="badge b-success" style="flex: none;">Paid</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Payment received · 5.220 JOD</b><span class="sm muted">Receipt for INV-AMM-2026-00031 sent to your email.</span></div>
+          <span class="xs muted" style="flex: none;">Oct 21</span>
+        </a>
+        <a class="card tight row" href="Profile.html" style="text-decoration: none; color: #15171D; align-items: flex-start;">
+          <span class="badge b-neutral" style="flex: none;">Account</span>
+          <div class="stack" style="gap: 2px; flex: 1 1 auto;"><b class="sm">Laser certification added</b><span class="sm muted">Valid until March 2027. You can now run the laser yourself.</span></div>
+          <span class="xs muted" style="flex: none;">Oct 14</span>
+        </a>
+      </section>
+    </main>
+  </div>
+</div>
+</body>
+</html>

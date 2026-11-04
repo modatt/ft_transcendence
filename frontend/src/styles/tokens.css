@@ -1,4 +1,6 @@
-/* Makerspace design tokens, generated from the design system tokens.json (CPF colors). Do not edit by hand. */
+/* FabLab design tokens. Brand palette:
+   navy #020381, royal blue #2E4BB4, periwinkle #4A68D8, purple #7F32D9, yellow #F8D749.
+   Every text/background pair below passes WCAG AA in light and dark. Do not edit by hand. */
 :root, [data-theme="light"] {
   --bg-page: var(--neutral-50);
   --bg-card: #ffffff;
@@ -7,40 +9,77 @@
   --border-strong: var(--neutral-500);
   --text: var(--neutral-950);
   --text-muted: var(--neutral-600);
-  --primary: var(--maroon-700);
-  --primary-hover: var(--maroon-800);
+  --text-heading: var(--blue-900);
+  --primary: var(--blue-600);
+  --primary-hover: var(--blue-700);
   --on-primary: #ffffff;
-  --primary-subtle: var(--maroon-50);
-  --accent: var(--gold-400);
+  --primary-subtle: var(--blue-50);
+  --accent: var(--yellow-300);
   --on-accent: var(--neutral-950);
-  --focus-ring: var(--gold-400);
+  --focus-ring: var(--blue-500);
+  --bg-nav: var(--blue-900);
+  --on-nav: #ffffff;
+  --nav-muted: var(--blue-200);
   --danger: var(--red-600);
   --success: var(--green-600);
-  --warning: var(--gold-600);
-  --info: var(--blue-600);
+  --warning: var(--yellow-700);
+  --info: var(--cyan-600);
   --status-neutral-bg: var(--neutral-100);
   --status-neutral-fg: var(--neutral-800);
-  --status-info-bg: var(--blue-100);
-  --status-info-fg: var(--blue-800);
-  --status-warning-bg: var(--gold-100);
-  --status-warning-fg: var(--gold-800);
+  --status-info-bg: var(--cyan-100);
+  --status-info-fg: var(--cyan-800);
+  --status-warning-bg: var(--yellow-100);
+  --status-warning-fg: var(--yellow-800);
   --status-success-bg: var(--green-100);
   --status-success-fg: var(--green-800);
-  --status-brand-bg: var(--maroon-100);
-  --status-brand-fg: var(--maroon-800);
+  --status-brand-bg: var(--purple-100);
+  --status-brand-fg: var(--purple-800);
   --status-danger-bg: var(--red-100);
   --status-danger-fg: var(--red-800);
-  --maroon-50: #fff1f2;
-  --maroon-100: #fedfe2;
-  --maroon-200: #f2c3c8;
-  --maroon-300: #d8a0a6;
-  --maroon-400: #bb7b82;
-  --maroon-500: #a05963;
-  --maroon-600: #8b3f4b;
-  --maroon-700: #721f31;
-  --maroon-800: #670323;
-  --maroon-900: #490016;
-  --maroon-950: #31000c;
+  --blue-50: #f1f5ff;
+  --blue-100: #e0eaff;
+  --blue-200: #c4d6ff;
+  --blue-300: #99b6fb;
+  --blue-400: #6c8ee6;
+  --blue-500: #4a68d8;
+  --blue-600: #2e4bb4;
+  --blue-700: #203992;
+  --blue-800: #162a77;
+  --blue-900: #020381;
+  --blue-950: #061048;
+  --purple-50: #f6f3ff;
+  --purple-100: #ece5ff;
+  --purple-200: #dbccff;
+  --purple-300: #c2a6fb;
+  --purple-400: #a37de7;
+  --purple-500: #8c5cd8;
+  --purple-600: #7f32d9;
+  --purple-700: #642aab;
+  --purple-800: #4e1b8a;
+  --purple-900: #3a0b6b;
+  --purple-950: #280050;
+  --yellow-50: #fffae8;
+  --yellow-100: #f9f2d8;
+  --yellow-200: #fae69d;
+  --yellow-300: #f8d749;
+  --yellow-400: #e0ba31;
+  --yellow-500: #c39810;
+  --yellow-600: #977e00;
+  --yellow-700: #766200;
+  --yellow-800: #5c4c00;
+  --yellow-900: #433700;
+  --yellow-950: #2c2300;
+  --cyan-50: #e7f9ff;
+  --cyan-100: #ccf1fd;
+  --cyan-200: #b0dfee;
+  --cyan-300: #84c2d6;
+  --cyan-400: #4da2bb;
+  --cyan-500: #00839f;
+  --cyan-600: #006880;
+  --cyan-700: #004f62;
+  --cyan-800: #003e4c;
+  --cyan-900: #002d39;
+  --cyan-950: #001d26;
   --red-50: #fff2f1;
   --red-100: #ffdfde;
   --red-200: #febebc;
@@ -52,17 +91,6 @@
   --red-800: #680315;
   --red-900: #4a010c;
   --red-950: #320005;
-  --gold-50: #fff4e1;
-  --gold-100: #ffe4b7;
-  --gold-200: #efcb8c;
-  --gold-300: #d3aa60;
-  --gold-400: #ae801c;
-  --gold-500: #926908;
-  --gold-600: #765404;
-  --gold-700: #5e4201;
-  --gold-800: #473101;
-  --gold-900: #312101;
-  --gold-950: #1f1400;
   --green-50: #e4fde8;
   --green-100: #d2f1d7;
   --green-200: #b5ddbc;
@@ -74,59 +102,52 @@
   --green-800: #0b411d;
   --green-900: #032d11;
   --green-950: #001c08;
-  --blue-50: #eef6ff;
-  --blue-100: #d7eaff;
-  --blue-200: #b8d4f3;
-  --blue-300: #8eb5df;
-  --blue-400: #5f93c9;
-  --blue-500: #3375b4;
-  --blue-600: #125d9d;
-  --blue-700: #07497f;
-  --blue-800: #003763;
-  --blue-900: #002546;
-  --blue-950: #00172e;
-  --neutral-50: #f5f5f2;
-  --neutral-100: #e8e8e5;
-  --neutral-200: #d1d1ce;
-  --neutral-300: #b1b1ae;
-  --neutral-400: #8f8f8d;
-  --neutral-500: #72726f;
-  --neutral-600: #5b5b58;
-  --neutral-700: #484845;
-  --neutral-800: #353533;
-  --neutral-900: #242422;
-  --neutral-950: #1d1d1b;
+  --neutral-50: #f5f7fb;
+  --neutral-100: #e9ebef;
+  --neutral-200: #d4d7e0;
+  --neutral-300: #b7bbc2;
+  --neutral-400: #8f929a;
+  --neutral-500: #6e7279;
+  --neutral-600: #585b62;
+  --neutral-700: #45484e;
+  --neutral-800: #32353c;
+  --neutral-900: #202329;
+  --neutral-950: #15171d;
 }
 
 [data-theme="dark"] {
   --bg-page: var(--neutral-950);
   --bg-card: var(--neutral-900);
-  --bg-sunken: #161615;
+  --bg-sunken: #0E1015;
   --border: var(--neutral-700);
   --border-strong: var(--neutral-400);
   --text: var(--neutral-50);
   --text-muted: var(--neutral-300);
-  --primary: var(--maroon-300);
-  --primary-hover: var(--maroon-200);
-  --on-primary: var(--maroon-950);
-  --primary-subtle: var(--maroon-950);
-  --accent: var(--gold-300);
+  --text-heading: var(--blue-200);
+  --primary: var(--blue-300);
+  --primary-hover: var(--blue-200);
+  --on-primary: var(--blue-950);
+  --primary-subtle: var(--blue-950);
+  --accent: var(--yellow-300);
   --on-accent: var(--neutral-950);
-  --focus-ring: var(--gold-300);
+  --focus-ring: var(--yellow-300);
+  --bg-nav: var(--blue-950);
+  --on-nav: #ffffff;
+  --nav-muted: var(--blue-200);
   --danger: var(--red-300);
   --success: var(--green-300);
-  --warning: var(--gold-200);
-  --info: var(--blue-300);
-  --status-neutral-bg: var(--neutral-900);
+  --warning: var(--yellow-200);
+  --info: var(--cyan-300);
+  --status-neutral-bg: var(--neutral-800);
   --status-neutral-fg: var(--neutral-200);
-  --status-info-bg: var(--blue-900);
-  --status-info-fg: var(--blue-200);
-  --status-warning-bg: var(--gold-900);
-  --status-warning-fg: var(--gold-200);
+  --status-info-bg: var(--cyan-900);
+  --status-info-fg: var(--cyan-200);
+  --status-warning-bg: var(--yellow-900);
+  --status-warning-fg: var(--yellow-200);
   --status-success-bg: var(--green-900);
   --status-success-fg: var(--green-200);
-  --status-brand-bg: var(--maroon-900);
-  --status-brand-fg: var(--maroon-200);
+  --status-brand-bg: var(--purple-900);
+  --status-brand-fg: var(--purple-200);
   --status-danger-bg: var(--red-900);
   --status-danger-fg: var(--red-200);
 }
@@ -143,6 +164,16 @@
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-full: 9999px;
+  --text-xs: 12px;   /* captions, badges, helper text (minimum size) */
+  --text-sm: 14px;   /* tables, labels, buttons */
+  --text-md: 16px;   /* body */
+  --text-lg: 20px;   /* card titles (h3) */
+  --text-xl: 24px;   /* section titles (h2) */
+  --text-2xl: 28px;  /* KPI numbers */
+  --text-3xl: 32px;  /* page titles (h1) */
+  --text-4xl: 40px;  /* display */
+  --text-5xl: 48px;  /* landing hero */
+  --text-hero: 72px; /* error codes */
   --font-sans: Roboto, "Noto Kufi Arabic", system-ui, sans-serif;
   --font-arabic: "Noto Kufi Arabic", Roboto, system-ui, sans-serif;
   --font-mono: "Roboto Mono", ui-monospace, monospace;

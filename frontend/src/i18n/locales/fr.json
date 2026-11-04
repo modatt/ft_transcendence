@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "The Makerspace",
+    "name": "FabLab",
     "tagline": "Utilisation des machines et facturation"
   },
   "nav": {
@@ -12,7 +12,7 @@
   "footer": {
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'utilisation",
-    "copyright": "© {{year}} CPF Makerspace"
+    "copyright": "© {{year}} FabLab"
   },
   "auth": {
     "fields": {
@@ -22,14 +22,14 @@
     },
     "login": {
       "title": "Connexion",
-      "subtitle": "Utilisez votre compte Makerspace pour soumettre des travaux et consulter vos factures.",
+      "subtitle": "Utilisez votre compte FabLab pour soumettre des travaux et consulter vos factures.",
       "showPassword": "Afficher le mot de passe",
       "hidePassword": "Masquer le mot de passe",
       "forgotPassword": "Mot de passe oublié ?",
       "submit": "Se connecter",
       "submitting": "Connexion…",
-      "noAccount": "Nouveau au Makerspace ?",
-      "register": "Créer un compte"
+      "noAccount": "Nouveau au FabLab ?",
+      "signup": "Créer un compte"
     },
     "mfa": {
       "title": "Vérification en deux étapes",

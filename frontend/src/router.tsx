@@ -11,7 +11,7 @@ export const routes: RouteObject[] = [
     children: [
       { path: PATHS.home, element: <PlaceholderPage messageKey="page.home" /> },
       { path: PATHS.login, element: <LoginPage /> },
-      { path: PATHS.register, element: <PlaceholderPage /> },
+      { path: PATHS.signup, element: <PlaceholderPage /> },
       { path: PATHS.forgotPassword, element: <PlaceholderPage /> },
       { path: PATHS.privacy, element: <PlaceholderPage /> },
       { path: PATHS.terms, element: <PlaceholderPage /> },
