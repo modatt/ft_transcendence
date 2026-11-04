@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My organizations — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Customer</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <a class="iconbtn" href="Notifications.html" aria-label="Notifications, 2 unread"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot">2</span></a>
+      <span class="avatar" aria-label="Sara Khalil">SK</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Customer">
+      <a href="Dashboard.html">Dashboard</a>
+      <a href="NewJob.html">New job</a>
+      <a href="MyJobs.html">My jobs <span class="count">5</span></a>
+      <a href="Invoices.html">Invoices <span class="count">1 unpaid</span></a>
+      <a href="Notifications.html">Notifications <span class="count">2</span></a>
+      <a class="on" href="CustomerOrgs.html">Organizations</a>
+      <a href="Profile.html">Profile</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">My organizations</h1><p class="muted">Teams, companies and programs you belong to. Jobs can be billed to an organization.</p></div>
+        <button class="btn btn-primary">+ Create organization</button>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <div class="stack" style="flex: 1 1 320px; gap: 12px;">
+          <a class="card tight stack" href="#" style="gap: 6px; text-decoration: none; color: #15171D; border-color: #2E4BB4; background: #F1F5FF;"><div class="row between"><b>JU Robotics Team</b><span class="badge b-info">Admin</span></div><span class="sm muted">University team · 8 members</span></a>
+          <a class="card tight stack" href="#" style="gap: 6px; text-decoration: none; color: #15171D;"><div class="row between"><b>Fab Academy 2026</b><span class="badge b-neutral">Member</span></div><span class="sm muted">Program · 3.600 JOD allowance left</span></a>
+
+          <section class="card stack" style="gap: 14px;" aria-labelledby="nw">
+            <h2 id="nw" class="h3">Create an organization</h2>
+            <div class="field"><label for="on">Name</label><input id="on" placeholder="e.g. Design Club"></div>
+            <div class="field"><label for="ok">Type</label><select id="ok"><option>University team</option><option>Company or startup</option></select><span class="hint">Programs (like Fab Academy) are set up by the FabLab.</span></div>
+            <div class="field"><label for="ob">Billing name and tax number (optional)</label><input id="ob" placeholder="Shown on invoices"></div>
+            <button class="btn btn-secondary btn-block">Create</button>
+          </section>
+        </div>
+
+        <section class="card stack" style="flex: 999 1 560px; min-width: 0; gap: 20px;" aria-labelledby="od">
+          <div class="row between">
+            <div class="stack" style="gap: 2px;"><h2 id="od" class="h2">JU Robotics Team</h2><span class="sm muted">University team · you are an admin</span></div>
+            <div class="row" style="gap: 8px;"><button class="btn btn-secondary btn-sm">Edit</button><button class="btn btn-danger btn-sm">Delete organization</button></div>
+          </div>
+          <div class="seg" role="group" aria-label="Sections"><button class="on">Members 8</button><button>Jobs 12</button><button>Invoices 3</button></div>
+
+          <div class="row" style="gap: 8px; align-items: flex-end;">
+            <div class="field" style="flex: 1 1 260px;"><label for="ad">Add a member by email</label><input id="ad" placeholder="name@example.com"></div>
+            <div class="field" style="width: 160px;"><label for="rl">Role</label><select id="rl"><option>Member</option><option>Admin</option></select></div>
+            <button class="btn btn-primary">Send invite</button>
+          </div>
+
+          <div class="tablebox">
+            <table class="t">
+              <thead><tr><th>Member</th><th>Role</th><th>Joined</th><th class="end"><span class="sr-only">Actions</span></th></tr></thead>
+              <tbody>
+                <tr><td data-label="Member"><b>Sara Khalil</b> <span class="xs muted">(you)</span></td><td data-label="Role"><span class="badge b-info">Admin</span></td><td data-label="Joined" class="muted">Sep 12</td><td data-label="" class="end"><button class="btn btn-ghost btn-sm">Leave</button></td></tr>
+                <tr><td data-label="Member"><b>Omar Fakhoury</b></td><td data-label="Role"><span class="badge b-neutral">Member</span></td><td data-label="Joined" class="muted">Sep 12</td><td data-label="" class="end"><button class="btn btn-ghost btn-sm">Remove</button></td></tr>
+                <tr><td data-label="Member"><b>Dana Nasser</b></td><td data-label="Role"><span class="badge b-neutral">Member</span></td><td data-label="Joined" class="muted">Sep 20</td><td data-label="" class="end"><button class="btn btn-ghost btn-sm">Remove</button></td></tr>
+                <tr><td data-label="Member"><b>yazan.h@ju.edu.jo</b></td><td data-label="Role"><span class="badge b-warning">Invite sent</span></td><td data-label="Joined" class="muted">Today</td><td data-label="" class="end"><button class="btn btn-ghost btn-sm">Cancel invite</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="xs muted">When someone leaves or is removed, their past jobs and invoices stay with the organization.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Fabrication lab</span></div></a>
+    <nav class="toplinks" aria-label="Main">
+      <a class="on" href="Main.html">Home</a>
+      <a href="Machines.html">Machines and prices</a>
+      <a href="#how">How it works</a>
+      <a href="#visit">Visit us</a>
+    </nav>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <a class="btn btn-secondary" href="Login.html">Log in</a>
+      <a class="btn btn-primary" href="Signup.html">Create account</a>
+    </div>
+  </header>
+
+  <section style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; padding: 72px 64px; background: #FFFFFF; border-bottom: 1px solid #D4D7E0;">
+    <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 24px; max-width: 640px;">
+      <span class="badge b-brand" style="align-self: flex-start;">Amman, Jordan</span>
+      <h1 style="font-size: 48px; line-height: 56px; font-weight: 700; letter-spacing: -0.5px;">Bring your design. Leave with the part.</h1>
+      <p style="font-size: 20px; line-height: 28px; color: #585B62;">Upload your file, pick a machine, and see the price before we start. Our staff run the job, tell you when it is ready, and you pay at the counter when you pick it up.</p>
+      <div class="row">
+        <a class="btn btn-primary" href="Signup.html" style="min-height: 52px; padding: 14px 24px; font-size: 16px;">Start a job</a>
+        <a class="btn btn-secondary" href="Machines.html" style="min-height: 52px; padding: 14px 24px; font-size: 16px;">See machines and prices</a>
+      </div>
+      <p class="sm muted">Students get discounted rates. Free guidance from our fabrication team.</p>
+    </div>
+    <div class="dots" style="flex: 1 1 420px; min-height: 380px; border-radius: 12px; position: relative; display: flex; align-items: center; justify-content: center;">
+      <div class="card" style="width: 340px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 12px 32px rgba(21,23,29,.12);">
+        <div class="row between"><b>Quote</b><span class="mono sm muted">JOB-AMM-2026-000123</span></div>
+        <div class="sunken" style="height: 120px; display: flex; align-items: center; justify-content: center;">
+          <svg width="96" height="80" viewBox="0 0 96 80" aria-hidden="true"><path d="M48 6 86 26 48 46 10 26Z" fill="#C4D6FF" stroke="#2E4BB4" stroke-width="2"/><path d="M10 26v28l38 20V46Z" fill="#E0EAFF" stroke="#2E4BB4" stroke-width="2"/><path d="M86 26v28L48 74V46Z" fill="#99B6FB" stroke="#2E4BB4" stroke-width="2"/></svg>
+        </div>
+        <div class="sm" style="display: grid; grid-template-columns: 1fr auto; gap: 6px 16px;">
+          <span class="muted">PLA, 45 g</span><span class="mono">1.800</span>
+          <span class="muted">Print time, 3 h 30 min</span><span class="mono">1.750</span>
+          <span class="muted">Setup</span><span class="mono">0.500</span>
+          <span class="muted">Student discount</span><span class="mono">−0.810</span>
+          <span class="muted">Tax 16%</span><span class="mono">0.518</span>
+        </div>
+        <div class="hr"></div>
+        <div class="row between"><b>Estimated total</b><b class="mono">3.758 JOD</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding: 64px; display: flex; flex-direction: column; gap: 32px;">
+    <div class="stack" style="gap: 8px;"><h2 class="h2">How it works</h2><p class="muted">Four steps, from file to finished part.</p></div>
+    <div class="grid4">
+      <div class="card stack" style="gap: 10px;"><span class="mono" style="color: #2E4BB4; font-weight: 500;">01</span><b>Upload your design</b><p class="sm muted">STL, 3MF, SVG, DXF or PDF. See a 3D preview and check it fits the machine.</p></div>
+      <div class="card stack" style="gap: 10px;"><span class="mono" style="color: #2E4BB4; font-weight: 500;">02</span><b>See your price</b><p class="sm muted">An instant estimate from material and machine time, before anything starts.</p></div>
+      <div class="card stack" style="gap: 10px;"><span class="mono" style="color: #2E4BB4; font-weight: 500;">03</span><b>We make it</b><p class="sm muted">Staff review and run your job, and you follow its status live.</p></div>
+      <div class="card stack" style="gap: 10px;"><span class="mono" style="color: #2E4BB4; font-weight: 500;">04</span><b>Pick up and pay</b><p class="sm muted">Pay at the counter by cash, card or CliQ transfer. Your receipt arrives by email.</p></div>
+    </div>
+  </section>
+
+  <section style="padding: 0 64px 64px; display: flex; flex-direction: column; gap: 24px;">
+    <div class="row between"><h2 class="h2">What you can make</h2><a href="Machines.html" class="sm" style="font-weight: 500;">All machines and prices</a></div>
+    <div class="grid3">
+      <a class="card stack" href="Machines.html" style="gap: 6px; text-decoration: none; color: #15171D;"><b>3D printing</b><span class="sm muted">FDM, resin and large-format printers</span></a>
+      <a class="card stack" href="Machines.html" style="gap: 6px; text-decoration: none; color: #15171D;"><b>Laser cutting and engraving</b><span class="sm muted">Acrylic, wood, card and fabric</span></a>
+      <a class="card stack" href="Machines.html" style="gap: 6px; text-decoration: none; color: #15171D;"><b>CNC milling</b><span class="sm muted">Router, mill and lathe, operated by staff</span></a>
+      <a class="card stack" href="Machines.html" style="gap: 6px; text-decoration: none; color: #15171D;"><b>Vinyl cutting</b><span class="sm muted">Stickers, signs and heat transfer</span></a>
+      <a class="card stack" href="Machines.html" style="gap: 6px; text-decoration: none; color: #15171D;"><b>Electronics and PCB</b><span class="sm muted">Board milling and assembly bench</span></a>
+      <a class="card stack" href="Machines.html" style="gap: 6px; text-decoration: none; color: #15171D;"><b>3D scanning</b><span class="sm muted">Turn an object into a model</span></a>
+    </div>
+  </section>
+
+  <section id="visit" class="sunken" style="margin: 0 64px 64px; padding: 32px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; border-radius: 12px;">
+    <div class="stack" style="gap: 6px;"><b>Opening hours</b><span class="muted">Saturday to Thursday, 9 AM to 5 PM. No appointment needed.</span></div>
+    <div class="stack" style="gap: 6px;"><b>Address</b><span class="muted">Amman, Jordan</span></div>
+    <div class="stack" style="gap: 6px;"><b>Contact</b><span class="muted">hello@fablab.example</span></div>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 FabLab</span>
+    <nav aria-label="Legal"><a href="Legal.html">Privacy Policy</a><a href="Terms.html">Terms of Service</a><a href="#">Contact</a></nav>
+  </footer>
+</div>
+</body>
+</html>

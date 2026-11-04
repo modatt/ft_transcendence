@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Users and roles — Admin</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Admin</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <span class="avatar" aria-label="Lab manager">LM</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Admin">
+      <a href="AdminAnalytics.html">Analytics</a>
+      <a href="AdminMachines.html">Machines</a>
+      <a href="AdminMaterials.html">Materials</a>
+      <a href="AdminPrices.html">Prices and discounts</a>
+      <a class="on" href="AdminUsers.html">Users and roles</a>
+      <a href="AdminOrgs.html">Organizations and programs</a>
+      <a href="AdminAudit.html">Audit log</a>
+      <a href="AdminSettings.html">Settings</a>
+      <span class="label">Switch</span>
+      <a href="StaffQueue.html">Staff view</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Users and roles</h1><p class="muted">172 customers · 5 staff</p></div>
+        <div class="row" style="align-items: flex-end;"><div class="field" style="width: 260px;"><label for="s">Search</label><input id="s" placeholder="Name, email or mobile"></div><button class="btn btn-primary">+ Invite staff</button></div>
+      </div>
+      <div class="row"><div class="seg" role="group" aria-label="Filter by role"><button class="on">All</button><button>Customers</button><button>Staff</button><button>Finance</button><button>Admins</button></div></div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <div class="tablebox" style="flex: 999 1 560px; min-width: 0;">
+          <table class="t">
+            <thead><tr><th>Name</th><th>Role</th><th>Category</th><th>2FA</th><th>Last active</th><th class="end">Actions</th></tr></thead>
+            <tbody>
+              <tr style="background: #F1F5FF;"><td data-label="Name"><b>Omar Haddad</b><div class="xs muted">omar.h@fablab.example</div></td><td data-label="Role"><span class="badge b-brand">Staff</span></td><td data-label="Category" class="muted">—</td><td data-label="2FA"><span class="badge b-success">On</span></td><td data-label="Last active" class="muted">Now</td><td data-label="Actions" class="end"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+              <tr><td data-label="Name"><b>Rania Saleh</b><div class="xs muted">rania.s@fablab.example</div></td><td data-label="Role"><span class="badge b-info">Finance</span></td><td data-label="Category" class="muted">—</td><td data-label="2FA"><span class="badge b-success">On</span></td><td data-label="Last active" class="muted">1 h ago</td><td data-label="Actions" class="end"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+              <tr><td data-label="Name"><b>Sara Khalil</b><div class="xs muted">sara.k@student.ju.edu.jo</div></td><td data-label="Role"><span class="badge b-neutral">Customer</span></td><td data-label="Category">Student</td><td data-label="2FA"><span class="badge b-warning">Off</span></td><td data-label="Last active" class="muted">Today</td><td data-label="Actions" class="end"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+              <tr><td data-label="Name"><b>Khaled Tamimi</b><div class="xs muted">+962 7 9550 1180</div></td><td data-label="Role"><span class="badge b-neutral">Customer</span></td><td data-label="Category">Public</td><td data-label="2FA"><span class="badge b-warning">Off</span></td><td data-label="Last active" class="muted">Today</td><td data-label="Actions" class="end"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+              <tr><td data-label="Name"><b>Yousef Amin</b><div class="xs muted">yousef.a@gmail.com</div></td><td data-label="Role"><span class="badge b-neutral">Customer</span></td><td data-label="Category">Program · Fab Academy</td><td data-label="2FA"><span class="badge b-success">On</span></td><td data-label="Last active" class="muted">Yesterday</td><td data-label="Actions" class="end"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+              <tr><td data-label="Name"><b>Tala Q.</b><div class="xs muted">Guardian: Rami Q.</div></td><td data-label="Role"><span class="badge b-neutral">Customer</span></td><td data-label="Category">Under 18</td><td data-label="2FA"><span class="badge b-warning">Off</span></td><td data-label="Last active" class="muted">Oct 30</td><td data-label="Actions" class="end"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="card stack" style="flex: 1 1 320px; gap: 16px;" aria-labelledby="e">
+          <div class="row between"><h2 id="e" class="h3">Omar Haddad</h2><button class="btn btn-ghost btn-sm">Close</button></div>
+          <fieldset style="border: 0; padding: 0; margin: 0;"><legend class="lbl" style="margin-bottom: 8px;">Role</legend>
+            <div class="stack" style="gap: 10px;">
+              <label class="check"><input type="radio" name="r"> Customer</label>
+              <label class="check"><input type="radio" name="r" checked> Staff: queue, jobs, payments, walk-ins</label>
+              <label class="check"><input type="radio" name="r"> Finance: payments, credit notes, reports</label>
+              <label class="check"><input type="radio" name="r"> Admin: everything, including prices and users</label>
+            </div>
+          </fieldset>
+          <div class="sunken sm" style="padding: 12px 14px;"><b>Staff can't</b> change prices, delete users or issue credit notes.</div>
+          <div class="row between"><span class="sm">Require 2FA</span><span class="badge b-success">Always on for staff</span></div>
+          <div class="hr"></div>
+          <div class="row" style="justify-content: space-between;"><button class="btn btn-danger">Deactivate</button><button class="btn btn-primary">Save role</button></div>
+          <p class="xs muted">Every role change is written to the audit log.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reports — Finance</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Finance</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <span class="avatar" aria-label="Rania Saleh">RS</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Finance">
+      <a href="FinanceInvoices.html">Invoices and credit notes</a>
+      <a href="RecordPayment.html">Payments and cash-up</a>
+      <a class="on" href="FinanceReports.html">Reports</a>
+      <a href="StaffCustomers.html">Customers</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Reports</h1><p class="muted">October 2026 · demo data</p></div>
+        <div class="row" style="align-items: flex-end;"><div class="field" style="width: 200px;"><label for="pr">Period</label><select id="pr"><option>October 2026</option><option>Custom range</option></select></div><button class="btn btn-secondary">Export CSV</button><button class="btn btn-primary">Export PDF</button></div>
+      </div>
+
+      <div class="grid3">
+        <a class="card tight stack" href="#" style="gap: 4px; text-decoration: none; color: #15171D; border-color: #2E4BB4; background: #F1F5FF;"><b>Monthly summary</b><span class="sm muted">Invoiced, tax, discounts, collected</span></a>
+        <a class="card tight stack" href="#" style="gap: 4px; text-decoration: none; color: #15171D;"><b>Payments by method</b><span class="sm muted">Cash, card, transfer, program budget</span></a>
+        <a class="card tight stack" href="#" style="gap: 4px; text-decoration: none; color: #15171D;"><b>Unpaid by age</b><span class="sm muted">0–7, 8–30, 31–60, over 60 days</span></a>
+        <a class="card tight stack" href="#" style="gap: 4px; text-decoration: none; color: #15171D;"><b>Sales tax</b><span class="sm muted">Taxable amount and 16% tax per invoice</span></a>
+        <a class="card tight stack" href="#" style="gap: 4px; text-decoration: none; color: #15171D;"><b>Discounts and credit notes</b><span class="sm muted">What was given and why</span></a>
+        <a class="card tight stack" href="#" style="gap: 4px; text-decoration: none; color: #15171D;"><b>Program spending</b><span class="sm muted">Sponsored amounts per program</span></a>
+      </div>
+
+      <section class="card stack" aria-labelledby="ms">
+        <div class="row between"><h2 id="ms" class="h3">Monthly summary · October 2026</h2><span class="xs muted">JOD</span></div>
+        <div class="tablebox">
+          <table class="t">
+            <thead><tr><th>Line</th><th class="end">Amount</th><th class="end">Count</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Line">Gross before discounts</td><td data-label="Amount" class="end mono">1,205.849</td><td data-label="Count" class="end mono">214 invoices</td></tr>
+              <tr><td data-label="Line">Discounts</td><td data-label="Amount" class="end mono">−91.120</td><td data-label="Count" class="end mono">96 lines</td></tr>
+              <tr><td data-label="Line">Credit notes</td><td data-label="Amount" class="end mono">−7.350</td><td data-label="Count" class="end mono">2</td></tr>
+              <tr><td data-label="Line">Net before tax</td><td data-label="Amount" class="end mono">1,107.379</td><td data-label="Count" class="end"></td></tr>
+              <tr><td data-label="Line">Sales tax 16%</td><td data-label="Amount" class="end mono">177.181</td><td data-label="Count" class="end"></td></tr>
+              <tr><td data-label="Line"><b>Invoiced total</b></td><td data-label="Amount" class="end mono"><b>1,284.560</b></td><td data-label="Count" class="end"></td></tr>
+              <tr><td data-label="Line">Collected</td><td data-label="Amount" class="end mono">1,102.900</td><td data-label="Count" class="end mono">186 payments</td></tr>
+              <tr><td data-label="Line"><b>Still unpaid</b></td><td data-label="Amount" class="end mono" style="color: #A00023;"><b>181.660</b></td><td data-label="Count" class="end mono">23 invoices</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="xs muted">Sponsored program amounts (Fab Academy, school programs) are included in invoiced and collected totals as "Program budget" payments.</p>
+      </section>
+    </main>
+  </div>
+</div>
+</body>
+</html>
