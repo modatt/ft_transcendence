@@ -16,7 +16,6 @@ services:
     networks:
       - backend_net
     healthcheck:
-      # Check readiness using the actual secret credentials
       test: ["CMD-SHELL", "pg_isready -U $$(cat /run/secrets/db_user) -d $$(cat /run/secrets/db_name)"]
       interval: 10s
       timeout: 5s
@@ -24,7 +23,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: makerspace_redis
+    container_name: remolab_redis
     restart: always
     networks:
       - backend_net
@@ -36,22 +35,21 @@ services:
 
   web:
     build: 
-      context: ./RemoLab
+      context: ./remolab
       dockerfile: Dockerfile
-    container_name: makerspace_web
+    container_name: remolab_web
     restart: always
-    command:
     volumes:
-     - ./MakerspaceService:/app
-     - media_data:/app/media
-     - static_data:/app/static
-    environment:
-     - .env
+      - ./remolab:/app
+      - media_data:/app/media
+      - static_data:/app/static
+    env_file:
+      - .env
     secrets:
-     - db_name
-     - db_user
-     - db_password
-     - django_secret_key
+      - db_name
+      - db_user
+      - db_password
+      - django_secret_key
     depends_on:
       db:
         condition: service_healthy
@@ -64,10 +62,10 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: makerspace_nginx
+    container_name: remolab_nginx
     restart: always
     ports:
-      - "8000:80"      # Host Port 8000 maps to Container Port 80
+      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - media_data:/var/www/media:ro
@@ -81,10 +79,8 @@ networks:
   backend_net:
     driver: bridge
 
-
 volumes:
   postgres_data:
-    driver: local
   media_data:
   static_data:
 
