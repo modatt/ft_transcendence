@@ -13,6 +13,10 @@
   --color-border-strong: var(--border-strong);
   --color-text: var(--text);
   --color-muted: var(--text-muted);
+  --color-heading: var(--text-heading);
+  --color-nav: var(--bg-nav);
+  --color-on-nav: var(--on-nav);
+  --color-nav-muted: var(--nav-muted);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-on-primary: var(--on-primary);
@@ -27,6 +31,10 @@
   --color-warning: var(--warning);
   --color-info: var(--info);
 }
+
+/* Type sizes: tokens.css defines --text-xs … --text-5xl on :root, which overrides Tailwind's
+   default scale with the design system's (12, 14, 20, 24, 28, 32, 40, 48 px), so text-xs …
+   text-5xl follow it. text-base stays 16 px (--text-md). Never go below text-xs. */
 
 @layer base {
   html {
