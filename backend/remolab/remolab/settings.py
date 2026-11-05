@@ -26,6 +26,9 @@ INSTALLED_APPS = [
 
     # Add our database tables names here
     'organizations',
+    'people',
+    'machines',
+    'jobs',
 ]
 
 MIDDLEWARE = [
