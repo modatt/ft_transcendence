@@ -42,7 +42,7 @@ Access is permission-based (roles map to permissions), so new roles can be added
 | Role | Who | Key permissions |
 | --- | --- | --- |
 | Guest | Unauthenticated visitor | View public catalog, hours and price list; register |
-| Customer | Maker, student, startup, company | Manage profile; submit jobs; view quotes, invoices, payments, certifications; download PDFs |
+| Customer | Maker, student, startup, company | Manage profile; submit jobs; view quotes, invoices, payments, licenses; download PDFs |
 | Guardian | Parent of a minor customer | Give consent; view the minor's jobs and invoices |
 | Staff (fabrication specialist) | Lab operator | Job queue; approve/reject; start/complete; record actuals; issue invoices; record payments; create walk-in customers; record training sign-offs |
 | Finance | Cashier / accountant | Record payments, issue credit notes, cash-up, financial reports; cannot change prices |
@@ -95,7 +95,7 @@ Priority: **M** = built in the 4-week window; **S** = Should (after submission);
 | FR-16 | Each machine has a printed QR sticker linking to its own page at /m/\<token> (details in FR-90 to FR-93). | M |
 | FR-17 | Admin manages materials: name, category, color, unit (g, kg, ml, cm², sheet, m, piece), unit price per price list, density, compatible types, "customer-supplied allowed". | M |
 | FR-18 | Customer-supplied material is not charged; an optional handling fee applies. | M |
-| FR-90 | Scanning a machine's QR opens a mobile-first page that anyone can see without logging in: name, type, photo, build area, live status (updated over WebSockets), when it is free next, queue length, prices for the viewer's category, materials in stock, and safety and certification notes. | M |
+| FR-90 | Scanning a machine's QR opens a mobile-first page that anyone can see without logging in: name, type, photo, build area, live status (updated over WebSockets), when it is free next, queue length, prices for the viewer's category, materials in stock, and safety and license notes. | M |
 | FR-91 | Signed-in customers can start a job with this machine pre-filled, or report a problem (text and optional photo) that notifies on-duty staff. Logged-out visitors are sent to log in and then returned to the machine page. | M |
 | FR-92 | Staff who scan see quick actions instead: the running job (complete, fail, pause), the next jobs in the queue, change machine status with a note, log maintenance, and open problem reports. | M |
 | FR-93 | Admins print a bilingual A6 sticker per machine (QR, name, short link, machine ID) and can reset the link: a new random token is issued and old stickers stop working. Scans are counted per machine for analytics. | M |
@@ -117,21 +117,21 @@ Priority: **M** = built in the 4-week window; **S** = Should (after submission);
 | KUKA robotic arm | KUKA | Project description | Quotation only, staff-operated |
 | Design stations, workbenches | — | Time | Per hour or free |
 
-### 3.3 Training and certification
+### 3.3 Training and licenses
 
 | ID | Requirement | Priority |
 | --- | --- | --- |
 | FR-19 | Admin defines a training requirement per machine type (course, optional quiz, staff sign-off, validity period). | Later |
-| FR-20 | Staff record a certification for a customer; it shows on the profile with expiry. | M |
-| FR-21 | High-risk types (laser, CNC, KUKA) cannot be self-operated without a valid certification; staff can still run the job for the customer ("operator-run"). | M |
-| FR-22 | Lab academy course completions issue certifications automatically when linked. | S |
+| FR-20 | Staff record a license for a customer; it shows on the profile with expiry. | M |
+| FR-21 | High-risk types (laser, CNC, KUKA) cannot be self-operated without a valid license; staff can still run the job for the customer ("operator-run"). | M |
+| FR-22 | Lab academy course completions issue licenses automatically when linked. | S |
 
 ### 3.4 Jobs
 
 | ID | Requirement | Priority |
 | --- | --- | --- |
 | FR-23 | A customer, or staff on their behalf, creates a job by choosing a machine (or machine type) and filling the type's fields. | M |
-| FR-24 | Each job is either **self-service** (certified customer operates) or **operator-run** (staff operate, optional operator-time fee). | M |
+| FR-24 | Each job is either **self-service** (licensed customer operates) or **operator-run** (staff operate, optional operator-time fee). | M |
 | FR-25 | Upload design files (STL, 3MF, OBJ, G-code, SVG, DXF, PDF, AI, Gerber), up to 100 MB each by default, stored with checksum and malware scan. | M |
 | FR-26 | An instant quote with line-item breakdown is shown before submission, labeled as an estimate. | M |
 | FR-27 | The customer accepts job terms (failed-job policy, pickup deadline) before submitting. | M |
@@ -206,7 +206,7 @@ States: Draft → Submitted → (Under review) → Approved → Queued → In pr
 
 | ID | Requirement | Priority |
 | --- | --- | --- |
-| FR-65 | Every create, update and delete on jobs, files, invoices, payments, machines and organizations notifies the people it affects. Key events: job submitted (to on-duty staff), approved/rejected, started, completed/ready, invoice issued, payment received, overdue reminder, machine status change, certification expiring. | M |
+| FR-65 | Every create, update and delete on jobs, files, invoices, payments, machines and organizations notifies the people it affects. Key events: job submitted (to on-duty staff), approved/rejected, started, completed/ready, invoice issued, payment received, overdue reminder, machine status change, license expiring. | M |
 | FR-66 | Channels: in-app (live) and email in MVP; WhatsApp and SMS later. | M / S |
 | FR-67 | Staff notices route by machine type; unacknowledged new jobs escalate to the admin after a set time. | S |
 | FR-68 | Admin edits templates per language with variables (name, job ref, amount, link). | M |
@@ -217,7 +217,7 @@ States: Draft → Submitted → (Under review) → Approved → Queued → In pr
 
 | ID | Requirement | Priority |
 | --- | --- | --- |
-| FR-71 | Customers see their jobs, files, invoices, payments, certifications and balance. | M |
+| FR-71 | Customers see their jobs, files, invoices, payments, licenses and balance. | M |
 | FR-72 | Staff/Admin dashboard: jobs by status, today's revenue and collections, receivables aging (0–7, 8–30, 31–60, 60+ days), machines in use. | M |
 | FR-73 | Reports by date, machine, type, material, category, staff: revenue, collections, machine hours, material use, failure rate, top customers, discounts. | M |
 | FR-74 | Program reports: usage and cost per program and participant against budget. | M |
@@ -356,13 +356,13 @@ Invoice numbering and payment allocation run inside database transactions with r
 | guardian\_link | minor, guardian name/mobile/email, consent\_at | customer\_profile |
 | customer\_category | code, price\_list | customers |
 | site | name, address, timezone, opening calendar, invoice series | machines, staff, jobs (one row today) |
-| machine\_type | code, names, job\_field\_schema (JSONB), pricing\_unit, approval\_rule, risk\_level, training\_required | machines, certifications |
+| machine\_type | code, names, job\_field\_schema (JSONB), pricing\_unit, approval\_rule, risk\_level, training\_required | machines, licenses |
 | machine | site, type, names, model, status, work\_area, qr\_token, rates, setup\_fee, min\_charge, rounding | materials (compatible) |
 | machine\_status\_log | machine, from, to, reason, expected\_return, actor | machine |
 | material | names, category, color, unit, density, customer\_supplied\_allowed | price\_list\_item |
 | price\_list / price\_list\_item | effective dates; target, unit, unit\_price, tax\_rate | category |
 | tax\_rate, discount\_rule | rate / scope, value, validity, stackable | price lines |
-| training\_course / certification | course, machine\_type, validity / customer, signed\_by, issued\_at, expires\_at | customer, machine\_type |
+| training\_course / license | course, machine\_type, validity / customer, signed\_by, issued\_at, expires\_at | customer, machine\_type |
 | program / program\_enrollment | name, budget, per-participant allowance, manager / participant, used amount | jobs, invoices |
 | project | customer, title, quotation, deposit, status | jobs, invoices |
 | job | ref, site, customer, project, program, machine\_type, machine, mode (self/operator), status, fields (JSONB), estimates, actuals, failure info, parent\_job | files, status history, lines |
@@ -389,10 +389,10 @@ Integrity rules:
 | Area | Endpoints | Roles |
 | --- | --- | --- |
 | Auth | POST /auth/register, /auth/login, /auth/logout, /auth/password/forgot, /auth/mfa/verify | Public |
-| Profile | GET/PATCH /me; GET /me/jobs, /me/invoices, /me/balance, /me/certifications; POST /me/data-export | Customer |
+| Profile | GET/PATCH /me; GET /me/jobs, /me/invoices, /me/balance, /me/licenses; POST /me/data-export | Customer |
 | Catalog | GET /machines, /machines/{id}, /materials, /price-lists/current, /hours | Public |
 | Catalog admin | POST/PATCH /admin/machines, /admin/materials, /admin/price-lists; PATCH /machines/{id}/status | Admin (status: Staff) |
-| Training | GET/POST /certifications; GET /machine-types/{id}/requirements | Staff |
+| Training | GET/POST /licenses; GET /machine-types/{id}/requirements | Staff |
 | Files | POST /files/upload-url; POST /jobs/{id}/files; GET /files/{id}/download-url | Owner, Staff |
 | Quotes | POST /quotes/preview | Customer, Staff |
 | Jobs | POST /jobs; GET /jobs/{id}; POST /jobs/{id}/submit, /approve, /reject, /start, /complete, /fail, /cancel; GET /staff/jobs | By transition |
@@ -417,7 +417,7 @@ The base idea (profiles, machines, job entry, invoice, staff notice) becomes muc
 | --- | --- | --- | --- | --- |
 | I-1 | Staff-confirmed actuals, immutable invoices, credit notes | Ends disputes about guessed usage; the pattern JoFotara requires | Must | 1 |
 | I-2 | Fast walk-in counter screen | No appointments at the FabLab, so the counter is the bottleneck | Must | 1 |
-| I-3 | Training and certification gating | Laser, CNC and KUKA are high-risk; the Academy already trains people | Must | 1 |
+| I-3 | Training and license gating | Laser, CNC and KUKA are high-risk; the Academy already trains people | Must | 1 |
 | I-4 | Sponsored program billing | Fab Academy, Fabricademy and school programs shouldn't pay at the counter | Must | 1 |
 | I-5 | Impact reporting | A foundation needs youth-reached figures for donors, not only revenue | Must | 1 |
 | I-6 | QR code on every machine | Scan to start a job or report a fault | Should | 2 |
@@ -449,7 +449,7 @@ Each gate is checked at the end of its week; anything unfinished by the end of w
 - [ ] How are payments taken today (cash, POS, CliQ), and who reconciles them?
 - [ ] Do program participants (Fab Academy, schools) pay, or does a sponsor cover their usage? What allowance per person?
 - [ ] Is the lab (or the organization that runs it) registered for sales tax, and must it issue invoices through JoFotara?
-- [ ] Current machine list and models, and which machines need staff approval or certification.
+- [ ] Current machine list and models, and which machines need staff approval or a license.
 - [ ] Current prices per machine and material, by customer category.
 - [ ] Failed-job policy: who pays for material when a print fails?
 - [ ] Payment terms and pickup deadline for completed jobs.
@@ -588,7 +588,7 @@ Every page the site needs is listed below. Each one is drawn on the [UI canvas](
 | Staff | /staff/jobs/:ref/complete | Complete job: actual usage | FR-45 to FR-47, FR-51 |
 | Staff | /staff/payments | Record payment and cash-up | FR-58 to FR-64 |
 | Staff | /staff/customers | Customers | FR-71 |
-| Staff | /staff/certifications | Certifications | FR-20, FR-21 |
+| Staff | /staff/licenses | Licenses | FR-20, FR-21 |
 | Staff | /m/:token (staff view) | Machine quick actions after scanning | FR-92 |
 | Finance | /finance/invoices | Invoices and credit notes | FR-52, FR-62 |
 | Finance | /finance/reports | Reports | FR-73, FR-76 |
@@ -618,7 +618,7 @@ Rules the schema enforces:
 - Membership gives the organization system its many-to-many link between users and organizations; programs are organizations with `kind = program` and a budget.
 - Django creates `id` primary keys and the MachineMaterial table automatically (a ManyToManyField on Machine).
 
-The diagram shows the 19 core tables. The screens and later requirements add 8 more, listed with all fields in `docs/ERD.md`: **GuardianLink** (FR-06, FR-94), **ConsentRecord** (FR-09), **MachineStatusLog** (FR-14), **ProblemReport** (FR-91), **Discount** (FR-35), **ProgramApproval** (FR-41), **StaffNote** (customer notes on the staff page) and **LabSettings** (FR-11, FR-77). Machine also gains `qr_token`, `scan_count`, `build_x/y/z_mm`, `min_charge` and `requires_certification`; Material gains `stock_qty` and `reorder_level`.
+The diagram shows the 19 core tables. The screens and later requirements add 8 more, listed with all fields in `docs/ERD.md`: **GuardianLink** (FR-06, FR-94), **ConsentRecord** (FR-09), **MachineStatusLog** (FR-14), **ProblemReport** (FR-91), **Discount** (FR-35), **ProgramApproval** (FR-41), **StaffNote** (customer notes on the staff page) and **LabSettings** (FR-11, FR-77). Machine also gains `qr_token`, `scan_count`, `build_x/y/z_mm`, `min_charge` and `requires_license`; Material gains `stock_qty` and `reorder_level`.
 
 ## 12. Privacy Policy and Terms of Service
 
@@ -641,7 +641,7 @@ Both pages are mandatory and checked at evaluation: linked in the footer of ever
 ### Terms of Service
 
 - **Accounts:** who can register, one account per person, keep your password safe.
-- **Using machines:** safety rules, certification before using high-risk machines, and staff may refuse or stop a job.
+- **Using machines:** safety rules, a license before using high-risk machines, and staff may refuse or stop a job.
 - **Your files:** you keep ownership of your designs and confirm you have the right to make them; no weapons or illegal items.
 - **Prices:** quotes are estimates; the invoice uses the actual material and time recorded by staff.
 - **Failed jobs:** who pays for material when a job fails (confirm the policy).

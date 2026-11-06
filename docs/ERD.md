@@ -19,8 +19,8 @@ erDiagram
   User ||--o{ ConsentRecord : gives
   User ||--o{ Membership : joins
   Organization ||--o{ Membership : has
-  User ||--o{ Certification : holds
-  MachineType ||--o{ Certification : for
+  User ||--o{ License : holds
+  MachineType ||--o{ License : for
   User ||--o{ Notification : receives
   User ||--o{ AuditLog : acts
   User ||--o{ StaffNote : "is about"
@@ -125,7 +125,7 @@ erDiagram
 | `status` | enum | invited / active / left / removed |
 | `joined_at` | timestamp, null | |
 
-**Certification**
+**License**
 
 | Field | Type / key | Notes |
 | --- | --- | --- |
@@ -177,7 +177,7 @@ erDiagram
 | `field_schema` | json | Job fields this type needs |
 | `approval_rule` | enum | always / never / over_grams |
 | `approval_threshold_g` | int, null | e.g. 100 |
-| `risk_level` | enum | low / high (high needs certification) |
+| `risk_level` | enum | low / high (high needs license) |
 
 **Machine**
 
@@ -193,7 +193,7 @@ erDiagram
 | `time_rate` | decimal(14,3) | Per pricing_unit |
 | `setup_fee`, `min_charge` | decimal(14,3) | |
 | `rounding_minutes` | int | e.g. 30 |
-| `requires_certification` | bool | |
+| `requires_license` | bool | |
 | `qr_token` | varchar unique | Random; reset issues a new one (FR-93) |
 | `scan_count` | int | |
 | `photo` | image, null | JPG/PNG/WebP, max 5 MB, stored resized to 1600×1000 and a 320×200 thumbnail. Shown on /machines, /m/:token and the admin list; a type illustration is shown when empty |
