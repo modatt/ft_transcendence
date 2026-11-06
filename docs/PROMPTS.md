@@ -63,7 +63,7 @@ Match design/screenshots Login, Signup, ForgotPassword, Setup2FA and ErrorPages.
 ## 5. Models and seed data (SRS §15 task 9, §14)
 
 ```
-Create every model in docs/ERD.md (all 27 tables), with the money rules from CLAUDE.md.
+Create every model in docs/ERD.md (all 28 tables), with the money rules from CLAUDE.md.
 Register them in the Django admin. Write `make seed` with the demo data in SRS section 14
 and the names, machines and amounts shown in the mockups. Stop and show me the migration list.
 ```

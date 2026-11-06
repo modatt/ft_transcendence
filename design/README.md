@@ -46,7 +46,7 @@ Same list as SRS section 10.2.
 | Staff | `/staff/jobs/:ref/complete` | Complete job: actual usage | `screens/CompleteJob.html` | `screenshots/CompleteJob.png` |
 | Staff | `/staff/payments` | Record payment and cash-up | `screens/RecordPayment.html` | `screenshots/RecordPayment.png` |
 | Staff | `/staff/customers` | Customers | `screens/StaffCustomers.html` | `screenshots/StaffCustomers.png` |
-| Staff | `/staff/certifications` | Certifications | `screens/Certifications.html` | `screenshots/Certifications.png` |
+| Staff | `/staff/licenses` | Licenses | `screens/Licenses.html` | `screenshots/Licenses.png` |
 | Staff | `/m/:token (staff view)` | Machine quick actions after scanning (phone) | `screens/MachineQRStaff.html` | `screenshots/MachineQRStaff.png` |
 | Finance | `/finance/invoices` | Invoices and credit notes | `screens/FinanceInvoices.html` | `screenshots/FinanceInvoices.png` |
 | Finance | `/finance/reports` | Reports | `screens/FinanceReports.html` | `screenshots/FinanceReports.png` |

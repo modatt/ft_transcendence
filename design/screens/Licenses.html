@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Certifications — Staff</title>
+<title>Licenses — Staff</title>
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -29,24 +29,24 @@ a{color:#2E4BB4}a:hover{color:#203992}
       <a href="JobsList.html">Jobs</a>
       <a href="RecordPayment.html">Payments and cash-up</a>
       <a href="StaffCustomers.html">Customers</a>
-      <a class="on" href="Certifications.html">Certifications</a>
+      <a class="on" href="Licenses.html">Licenses</a>
       <span class="label">Admin</span>
       <a href="AdminMachines.html">Machines and prices</a>
       <a href="AdminAnalytics.html">Analytics</a>
     </nav>
     <main class="content">
       <div class="pagehead">
-        <div class="stack" style="gap: 4px;"><h1 class="h1">Certifications</h1><p class="muted">Who may run high-risk machines on their own.</p></div>
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Licenses</h1><p class="muted">Who may run high-risk machines on their own.</p></div>
       </div>
 
       <div class="grid3">
-        <div class="kpi"><span class="k">Laser cutter</span><span class="v">34</span><span class="xs muted">certified · 3 expire this month</span></div>
-        <div class="kpi"><span class="k">CNC router</span><span class="v">9</span><span class="xs muted">certified · 1 expires this month</span></div>
+        <div class="kpi"><span class="k">Laser cutter</span><span class="v">34</span><span class="xs muted">licensed · 3 expire this month</span></div>
+        <div class="kpi"><span class="k">CNC router</span><span class="v">9</span><span class="xs muted">licensed · 1 expires this month</span></div>
         <div class="kpi"><span class="k">KUKA robotic arm</span><span class="v">0</span><span class="xs muted">staff-operated only</span></div>
       </div>
 
       <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
-        <section class="stack" style="flex: 999 1 560px; min-width: 0;" aria-label="Certification list">
+        <section class="stack" style="flex: 999 1 560px; min-width: 0;" aria-label="License list">
           <div class="row" style="align-items: flex-end;">
             <div class="field" style="width: 240px;"><label for="q">Search</label><input id="q" placeholder="Customer name"></div>
             <div class="field" style="width: 200px;"><label for="mt">Machine type</label><select id="mt"><option>All types</option><option>Laser cutter</option><option>CNC router</option></select></div>
@@ -67,14 +67,14 @@ a{color:#2E4BB4}a:hover{color:#203992}
         </section>
 
         <aside class="card stack" style="flex: 1 1 320px; gap: 16px;" aria-labelledby="ad">
-          <h2 id="ad" class="h3">Add a certification</h2>
+          <h2 id="ad" class="h3">Add a license</h2>
           <div class="field"><label for="cu">Customer</label><input id="cu" value="Dana Nasser"></div>
           <div class="field"><label for="ty">Machine type</label><select id="ty"><option>Laser cutter</option><option>CNC router</option></select></div>
           <div class="field"><label for="tr">Training completed</label><select id="tr"><option>Laser safety, Nov 3</option></select></div>
           <label class="check"><input type="checkbox" checked> Passed the practical check with staff</label>
           <div class="field"><label for="vu">Valid for</label><select id="vu"><option>12 months</option><option>6 months</option></select></div>
-          <button class="btn btn-primary btn-block">Add certification</button>
-          <p class="xs muted">Customers without a valid certification can still order jobs; staff run the machine for them.</p>
+          <button class="btn btn-primary btn-block">Add license</button>
+          <p class="xs muted">Customers without a valid license can still order jobs; staff run the machine for them.</p>
         </aside>
       </div>
     </main>

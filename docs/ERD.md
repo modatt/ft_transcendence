@@ -7,7 +7,7 @@ Source of truth for the Django models. It matches the SRS (sections 3, 5.2 and 1
 - **Django adds** `id` primary keys, `created_at`/`updated_at` (via an abstract `TimeStamped` base) and the MachineMaterial join table (a `ManyToManyField` on Machine).
 - **Translated text** fields come as `_ar`, `_en` and `_fr` columns (for example `name_ar`, `name_en`, `name_fr`).
 
-27 tables: 19 core and 8 added for the screens and later requirements (marked *new*).
+28 tables: 19 core and 9 added for the screens and later requirements (marked *new*).
 
 ## Relationships
 
@@ -19,8 +19,11 @@ erDiagram
   User ||--o{ ConsentRecord : gives
   User ||--o{ Membership : joins
   Organization ||--o{ Membership : has
-  User ||--o{ Certification : holds
-  MachineType ||--o{ Certification : for
+  User ||--o{ License : holds
+  MachineType ||--o{ License : for
+  Machine ||--o{ Document : "has (manuals)"
+  User ||--o{ Document : "has (waivers)"
+  License ||--o{ Document : "has (test results)"
   User ||--o{ Notification : receives
   User ||--o{ AuditLog : acts
   User ||--o{ StaffNote : "is about"
@@ -125,7 +128,7 @@ erDiagram
 | `status` | enum | invited / active / left / removed |
 | `joined_at` | timestamp, null | |
 
-**Certification**
+**License**
 
 | Field | Type / key | Notes |
 | --- | --- | --- |
@@ -134,6 +137,20 @@ erDiagram
 | `signed_by` | FK User | Staff |
 | `issued_at`, `expires_at` | date | |
 | `revoked_at` | timestamp, null | |
+
+**Document** *new* (FR-97)
+
+| Field | Type / key | Notes |
+| --- | --- | --- |
+| `machine_id` | FK Machine, null | Manuals, safety sheets |
+| `customer_id` | FK User, null | Signed waivers, contracts (staff-only) |
+| `license_id` | FK License, null | Training test results (staff-only) |
+| `title` | varchar | |
+| `file` | path | Private storage, signed URLs; same checks as JobFile |
+| `uploaded_by` | FK User | Staff |
+| `created_at` | timestamp | |
+
+Exactly one of `machine_id`, `customer_id`, `license_id` is set (database check constraint).
 
 **StaffNote** *new*
 
@@ -177,7 +194,7 @@ erDiagram
 | `field_schema` | json | Job fields this type needs |
 | `approval_rule` | enum | always / never / over_grams |
 | `approval_threshold_g` | int, null | e.g. 100 |
-| `risk_level` | enum | low / high (high needs certification) |
+| `risk_level` | enum | low / high (high needs license) |
 
 **Machine**
 
@@ -193,7 +210,7 @@ erDiagram
 | `time_rate` | decimal(14,3) | Per pricing_unit |
 | `setup_fee`, `min_charge` | decimal(14,3) | |
 | `rounding_minutes` | int | e.g. 30 |
-| `requires_certification` | bool | |
+| `requires_license` | bool | |
 | `qr_token` | varchar unique | Random; reset issues a new one (FR-93) |
 | `scan_count` | int | |
 | `photo` | image, null | JPG/PNG/WebP, max 5 MB, stored resized to 1600×1000 and a 320×200 thumbnail. Shown on /machines, /m/:token and the admin list; a type illustration is shown when empty |
