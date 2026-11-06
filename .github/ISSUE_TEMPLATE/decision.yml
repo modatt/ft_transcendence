@@ -1,0 +1,24 @@
+name: Decision
+description: A conflict or open question the team has to settle (see docs/DECISIONS.md).
+labels: [decision]
+body:
+  - type: textarea
+    id: conflict
+    attributes:
+      label: Conflict
+      description: Which docs, files or code disagree, and how.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed answer
+    validations:
+      required: true
+  - type: textarea
+    id: blocks
+    attributes:
+      label: What it blocks
+  - type: markdown
+    attributes:
+      value: Once decided, record the answer in docs/DECISIONS.md and update the losing source.

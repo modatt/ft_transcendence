@@ -1,0 +1,36 @@
+name: Bug
+description: Something that works differently from the SRS or the mockups.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
+      description: Link the FR/NFR ID or mockup if there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1. 
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      multiple: true
+      options: [English, Arabic (RTL), French, Light theme, Dark theme, Phone, Tablet, Desktop]
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console or server output
+      render: text
