@@ -236,6 +236,9 @@ States: Draft → Submitted → (Under review) → Approved → Queued → In pr
 | FR-81 | Append-only audit entry for every change to financial or configuration data, every state transition, override, login and permission change: actor, role, time (UTC), IP, entity, before/after values. | M |
 | FR-95 | Friendly error pages in all three languages: 404 (not found), 403 (wrong role, with a way back) and 500 (with a reference code for staff). No stack traces or raw errors are ever shown. | M |
 | FR-96 | Light and dark themes on every page, switchable from the header and the profile; the choice is remembered per user. | M |
+| FR-97 | Staff attach documents to machines (user manuals, safety sheets), customers (signed waivers, contracts) and licenses (training test results). Customers see a machine's manual on its machine page; customer and license documents are staff-only. Same type and size checks as FR-88. | S |
+| FR-98 | Staff filter the jobs list by machine and date range to see who used a machine and when (for example "who used the CNC yesterday evening?"), with each job's customer, operator and start and end times. | M |
+| FR-99 | On the admin's first sign-in, a setup checklist (add a machine, set prices, add a staff member, print the QR stickers) links to each page and ticks itself as each step is done; it can be dismissed. | S |
 
 ### 3.12 Key user stories
 
@@ -476,7 +479,7 @@ The plan targets **18 points**, 4 above the required 14, in case a module is not
 | 2FA | Minor | 1 | Available to every user; required for staff, finance and admins |
 | **Total** |  | **18** |  |
 
-Bonus candidates (maximum 5 points): Public API with API keys and rate limits (Major), GDPR features (Minor), OAuth with 42 or Google (Minor).
+Bonus candidates (maximum 5 points): Public API with API keys, rate limits and webhooks that call another system when a job, invoice or payment changes (Major), GDPR features (Minor), OAuth with 42 or Google (Minor).
 
 ### Subject rules checklist
 
@@ -606,7 +609,7 @@ Finance also uses /staff/payments and /staff/customers. The Django admin site st
 
 ## 11. Database schema (ERD)
 
-The database has 27 tables (19 core plus 8 added for the screens, listed below) in four groups: people and organizations, machines and prices, jobs, and billing. Job is the hub. It points to a customer and a machine, and each invoice line points back to one job.
+The database has 28 tables (19 core plus 9 added for the screens, listed below) in four groups: people and organizations, machines and prices, jobs, and billing. Job is the hub. It points to a customer and a machine, and each invoice line points back to one job.
 
 (Diagram: see docs/ERD.md for the full schema as text.)
 
@@ -618,7 +621,7 @@ Rules the schema enforces:
 - Membership gives the organization system its many-to-many link between users and organizations; programs are organizations with `kind = program` and a budget.
 - Django creates `id` primary keys and the MachineMaterial table automatically (a ManyToManyField on Machine).
 
-The diagram shows the 19 core tables. The screens and later requirements add 8 more, listed with all fields in `docs/ERD.md`: **GuardianLink** (FR-06, FR-94), **ConsentRecord** (FR-09), **MachineStatusLog** (FR-14), **ProblemReport** (FR-91), **Discount** (FR-35), **ProgramApproval** (FR-41), **StaffNote** (customer notes on the staff page) and **LabSettings** (FR-11, FR-77). Machine also gains `qr_token`, `scan_count`, `build_x/y/z_mm`, `min_charge` and `requires_license`; Material gains `stock_qty` and `reorder_level`.
+The diagram shows the 19 core tables. The screens and later requirements add 9 more, listed with all fields in `docs/ERD.md`: **GuardianLink** (FR-06, FR-94), **ConsentRecord** (FR-09), **MachineStatusLog** (FR-14), **ProblemReport** (FR-91), **Discount** (FR-35), **ProgramApproval** (FR-41), **StaffNote** (customer notes on the staff page), **LabSettings** (FR-11, FR-77) and **Document** (FR-97, files on machines, customers and licenses). Machine also gains `qr_token`, `scan_count`, `build_x/y/z_mm`, `min_charge` and `requires_license`; Material gains `stock_qty` and `reorder_level`.
 
 ## 12. Privacy Policy and Terms of Service
 

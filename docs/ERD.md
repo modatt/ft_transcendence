@@ -7,7 +7,7 @@ Source of truth for the Django models. It matches the SRS (sections 3, 5.2 and 1
 - **Django adds** `id` primary keys, `created_at`/`updated_at` (via an abstract `TimeStamped` base) and the MachineMaterial join table (a `ManyToManyField` on Machine).
 - **Translated text** fields come as `_ar`, `_en` and `_fr` columns (for example `name_ar`, `name_en`, `name_fr`).
 
-27 tables: 19 core and 8 added for the screens and later requirements (marked *new*).
+28 tables: 19 core and 9 added for the screens and later requirements (marked *new*).
 
 ## Relationships
 
@@ -21,6 +21,9 @@ erDiagram
   Organization ||--o{ Membership : has
   User ||--o{ License : holds
   MachineType ||--o{ License : for
+  Machine ||--o{ Document : "has (manuals)"
+  User ||--o{ Document : "has (waivers)"
+  License ||--o{ Document : "has (test results)"
   User ||--o{ Notification : receives
   User ||--o{ AuditLog : acts
   User ||--o{ StaffNote : "is about"
@@ -134,6 +137,20 @@ erDiagram
 | `signed_by` | FK User | Staff |
 | `issued_at`, `expires_at` | date | |
 | `revoked_at` | timestamp, null | |
+
+**Document** *new* (FR-97)
+
+| Field | Type / key | Notes |
+| --- | --- | --- |
+| `machine_id` | FK Machine, null | Manuals, safety sheets |
+| `customer_id` | FK User, null | Signed waivers, contracts (staff-only) |
+| `license_id` | FK License, null | Training test results (staff-only) |
+| `title` | varchar | |
+| `file` | path | Private storage, signed URLs; same checks as JobFile |
+| `uploaded_by` | FK User | Staff |
+| `created_at` | timestamp | |
+
+Exactly one of `machine_id`, `customer_id`, `license_id` is set (database check constraint).
 
 **StaffNote** *new*
 

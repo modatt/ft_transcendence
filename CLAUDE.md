@@ -8,7 +8,7 @@ This is a 42 ft_transcendence project: a team of 4–5, a one-month deadline, gr
 
 - `docs/SRS.md`: full requirements (FR-01 to FR-96, NFR-01 to NFR-31), roles, job workflow, modules, week plan. Cite the FR ID in commits and PRs.
 - `docs/SRS.md` section 10.2: **every page and its route**. Build pages from that list; don't invent new routes without adding them there.
-- `docs/ERD.md`: the database schema (27 tables). Models must match it; change the ERD in a PR before changing models.
+- `docs/ERD.md`: the database schema (28 tables). Models must match it; change the ERD in a PR before changing models.
 - `docs/tokens.css`: design tokens (navy, royal blue, purple and yellow palette; light and dark).
 - `design/README.md`: the UI mockup for every page, including phone and tablet versions (`design/screenshots/*.png`, `design/screens/*.html`), mapped to its route. Match their layout and copy exactly; look at the screenshot before building a page. Screenshots are not in git: if `design/screenshots/` is missing, open the page's `design/screens/*.html` instead.
 - `docs/DECISIONS.md`: open conflicts between the docs, the team files and the code. Check it before building anything it lists.
