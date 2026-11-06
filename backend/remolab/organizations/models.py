@@ -75,3 +75,96 @@ class Organization(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_org_type_display()})"
+
+# modat: Role, RolePermission, Permission tables.
+
+## Permission Table
+class Permission(models.Model):
+    id = models.BigAutoField(primary_key=True, verbose_name="ID")
+
+    code = models.CharField(
+        max_length=100,
+        unique=True,
+        verbose_name="Permission Code"
+    )
+
+    module = models.CharField(
+        max_length=50,
+        verbose_name="Module Name"
+    )
+
+    description = models.TextField(blank=True, verbose_name="Description")
+
+    class Meta:
+        verbose_name = "Permission"
+        verbose_name_plural = "Permissions"
+        ordering = ['module', 'code']
+
+    def __str__(self):
+        return f"{self.module}: {self.code}" # will be displayed as "machines: machine.view"
+
+##  Role 
+
+class Role(models.Model):
+    id = models.BigAutoField(primary_key=True, verbose_name="ID")
+   
+    organization = models.ForeignKey(
+        Organization, 
+        on_delete=models.CASCADE
+    )
+    code = models.CharField(
+        max_length=100,
+        verbose_name="Role Code"
+    )
+
+    name = models.CharField(
+       max_length=100,
+       verbose_name="Role Name"
+    )
+
+    category = models.CharField(
+       max_length=50,
+       blank=True,
+       verbose_name="Category"
+    )
+
+    description = models.TextField(
+       blank=True,
+       verbose_name="Description"
+    )
+
+    is_system = models.BooleanField(
+       default=False,
+       verbose_name="Is System Role"
+    )
+    
+    class Meta:
+       verbose_name = "Role"
+       verbose_name_plural = "Roles"
+       ordering = ['category', 'name']
+    
+    def __str__(self):
+       return f"{self.name} ({self.code})"
+
+## RolePermission
+class RolePermission(models.Model):
+    id = models.BigAutoField(primary_key=True, verbose_name="ID")
+
+    role = models.ForeignKey(
+        Role,
+        on_delete=models.CASCADE
+    ) 
+
+    permission = models.ForeignKey(
+        Permission,
+        on_delete=models.CASCADE
+    )
+
+    class Meta:
+        verbose_name = "Role Permission"
+        verbose_name_plural = "Role Permissions"
+        ordering = ['id']
+        unique_together = ('role', 'permission') # Prevents duplicate links
+
+    def __str__(self):
+        return f"{self.role}-> ({self.permission})"
