@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My jobs — FabLab</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Customer</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <a class="iconbtn" href="Notifications.html" aria-label="Notifications, 2 unread"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot">2</span></a>
+      <span class="avatar" aria-label="Sara Khalil">SK</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Customer">
+      <a href="Dashboard.html">Dashboard</a>
+      <a href="NewJob.html">New job</a>
+      <a class="on" href="MyJobs.html">My jobs <span class="count">5</span></a>
+      <a href="Invoices.html">Invoices <span class="count">1 unpaid</span></a>
+      <a href="Notifications.html">Notifications <span class="count">2</span></a>
+      <a href="CustomerOrgs.html">Organizations</a>
+      <a href="Profile.html">Profile</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">My jobs</h1><p class="muted">Everything you've ordered, newest first.</p></div>
+        <a class="btn btn-primary" href="NewJob.html">+ New job</a>
+      </div>
+
+      <div class="row between">
+        <div class="seg" role="group" aria-label="Filter by status"><button class="on">All 5</button><button>Active 2</button><button>Ready 1</button><button>Closed 1</button><button>Rejected 1</button></div>
+        <div class="row" style="gap: 12px;">
+          <div class="field" style="width: 240px;"><label for="q">Search</label><input id="q" placeholder="Job number or name"></div>
+          <div class="field" style="width: 180px;"><label for="mt">Machine</label><select id="mt"><option>All machines</option></select></div>
+        </div>
+      </div>
+
+      <div class="tablebox">
+        <table class="t">
+          <thead><tr><th>Job</th><th>Machine and material</th><th>Status</th><th>Submitted</th><th>Next step</th><th class="end">Amount (JOD)</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Job"><a href="JobDetail.html" class="mono">JOB-AMM-2026-000134</a><div class="xs muted">Gear housing</div></td><td data-label="Machine and material">Ultimaker S5 · PLA</td><td data-label="Status"><span class="badge b-info">Queued</span></td><td data-label="Submitted" class="muted">Today, 2:30 PM</td><td data-label="Next step" class="sm">Starts after the current print</td><td data-label="Amount (JOD)" class="end mono muted">~4.120</td></tr>
+            <tr><td data-label="Job"><a href="JobDetail.html" class="mono">JOB-AMM-2026-000131</a><div class="xs muted">Name sign, acrylic</div></td><td data-label="Machine and material">Trotec Speedy 400 · Acrylic 3 mm</td><td data-label="Status"><span class="badge b-brand">In progress</span></td><td data-label="Submitted" class="muted">Today, 1:40 PM</td><td data-label="Next step" class="sm">Cutting now</td><td data-label="Amount (JOD)" class="end mono muted">~9.744</td></tr>
+            <tr><td data-label="Job"><a href="JobDetail.html" class="mono">JOB-AMM-2026-000123</a><div class="xs muted">Phone stand</div></td><td data-label="Machine and material">Prusa XL · PLA black</td><td data-label="Status"><span class="badge b-success">Invoiced</span></td><td data-label="Submitted" class="muted">Today, 9:05 AM</td><td data-label="Next step" class="sm"><b>Pick up and pay</b> by Thu</td><td data-label="Amount (JOD)" class="end mono">3.832</td></tr>
+            <tr><td data-label="Job"><a href="JobDetail.html" class="mono">JOB-AMM-2026-000097</a><div class="xs muted">Bracket v2</div></td><td data-label="Machine and material">Prusa XL · PETG</td><td data-label="Status"><span class="badge b-danger">Rejected</span></td><td data-label="Submitted" class="muted">Oct 28</td><td data-label="Next step" class="sm"><a href="NewJob.html">Fix the file and resubmit</a></td><td data-label="Amount (JOD)" class="end mono muted">—</td></tr>
+            <tr><td data-label="Job"><a href="JobDetail.html" class="mono">JOB-AMM-2026-000081</a><div class="xs muted">Keychains ×20</div></td><td data-label="Machine and material">Trotec Speedy 400 · Plywood 3 mm</td><td data-label="Status"><span class="badge b-neutral">Closed</span></td><td data-label="Submitted" class="muted">Oct 21</td><td data-label="Next step" class="sm muted">Paid and collected</td><td data-label="Amount (JOD)" class="end mono">5.220</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row between sm muted"><span>Showing 5 of 5 jobs</span><div class="row" style="gap: 8px;"><button class="btn btn-secondary btn-sm" disabled>Previous</button><button class="btn btn-secondary btn-sm" disabled>Next</button></div></div>
+
+      <div class="card tight row between" style="border-style: dashed;">
+        <span class="sm muted">Drafts you haven't submitted are kept for 30 days.</span>
+        <a class="btn btn-ghost btn-sm" href="NewJob.html">See 1 draft</a>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

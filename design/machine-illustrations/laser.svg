@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 320 200" role="img" aria-label="Picture of the laser cutter" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="glaser" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F5FF"/><stop offset="1" stop-color="#E0EAFF"/></linearGradient><pattern id="dlaser" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#99B6FB"/></pattern></defs><rect width="320" height="200" fill="url(#glaser)"/><rect width="320" height="200" fill="url(#dlaser)" opacity=".55"/><ellipse cx="160" cy="178" rx="118" ry="9" fill="#020381" opacity=".10"/>
+<rect x="44" y="96" width="232" height="72" rx="10" fill="#020381"/>
+<rect x="56" y="108" width="208" height="12" rx="3" fill="#45484E"/>
+<rect x="60" y="122" width="200" height="34" rx="4" fill="#E0EAFF"/>
+<rect x="76" y="128" width="70" height="22" rx="2" fill="#D9B98A"/><path d="M90 139h40" stroke="#020381" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="150" y="113" width="10" height="16" rx="2" fill="#2E4BB4"/><path d="M155 129v6" stroke="#E33" stroke-width="2"/>
+<path d="M58 96 74 34h172l16 62z" fill="#4A68D8"/><path d="M80 44h160l11 44H69z" fill="#C4D6FF"/><path d="M80 44h160l11 44H69z" fill="#FFFFFF" opacity=".35"/>
+<path d="M90 50l40 0-46 32z" fill="#FFFFFF" opacity=".5"/>
+<rect x="244" y="132" width="20" height="10" rx="2" fill="#F8D749"/><circle cx="66" cy="160" r="4" fill="#F8D749"/></svg>

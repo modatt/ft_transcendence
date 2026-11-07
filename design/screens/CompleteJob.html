@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Complete job 000131 — Staff</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Staff</span></div></a>
+    <div class="topend">
+      <span class="badge b-success">Live</span>
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <button class="iconbtn" aria-label="Notifications, 3 unread"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot">3</span></button>
+      <span class="avatar" aria-label="Omar Haddad">OH</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Staff">
+      <a href="StaffQueue.html">Queue board</a>
+      <a href="WalkIn.html">Walk-in counter</a>
+      <a class="on" href="JobsList.html">Jobs</a>
+      <a href="RecordPayment.html">Payments and cash-up</a>
+      <a href="StaffCustomers.html">Customers</a>
+      <a href="Certifications.html">Certifications</a>
+      <span class="label">Admin</span>
+      <a href="AdminMachines.html">Machines and prices</a>
+      <a href="AdminAnalytics.html">Analytics</a>
+    </nav>
+    <main class="content">
+      <a class="sm" href="StaffQueue.html" style="font-weight: 500;">← Queue board</a>
+      <div class="pagehead">
+        <div class="stack" style="gap: 6px;">
+          <div class="row" style="gap: 12px;"><h1 class="h1">Name sign, acrylic</h1><span class="badge b-brand">In progress</span></div>
+          <p class="muted"><span class="mono">JOB-AMM-2026-000131</span> · Sara Khalil (Student) · Trotec Speedy 400 · started 1:58 PM by Omar</p>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <div class="stack" style="flex: 999 1 560px; min-width: 0; gap: 24px;">
+          <section class="card stack" aria-labelledby="o">
+            <h2 id="o" class="h3">Outcome</h2>
+            <div class="seg" role="group" aria-label="Outcome"><button class="on">Completed</button><button>Failed</button><button>Put on hold</button></div>
+          </section>
+
+          <section class="card stack" aria-labelledby="a">
+            <h2 id="a" class="h3">Actual usage</h2>
+            <div class="tablebox">
+              <table class="t">
+                <thead><tr><th>Item</th><th class="end">Estimate</th><th>Actual</th><th class="end">Change</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Item">Laser time (min)</td><td data-label="Estimate" class="end mono">15</td><td data-label="Actual"><input aria-label="Actual laser minutes" value="21" style="font: inherit; width: 110px; min-height: 40px; padding: 8px 10px; border: 1px solid #6E7279; border-radius: 4px;"></td><td data-label="Change" class="end"><span class="badge b-warning">+40%</span></td></tr>
+                  <tr><td data-label="Item">Acrylic 3 mm sheets</td><td data-label="Estimate" class="end mono">1</td><td data-label="Actual"><input aria-label="Actual sheets" value="1" style="font: inherit; width: 110px; min-height: 40px; padding: 8px 10px; border: 1px solid #6E7279; border-radius: 4px;"></td><td data-label="Change" class="end muted">0%</td></tr>
+                  <tr><td data-label="Item">Extra: masking tape</td><td data-label="Estimate" class="end">—</td><td data-label="Actual"><input aria-label="Masking tape" value="0.250" style="font: inherit; width: 110px; min-height: 40px; padding: 8px 10px; border: 1px solid #6E7279; border-radius: 4px;"></td><td data-label="Change" class="end muted">added</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <button class="btn btn-ghost btn-sm" style="align-self: flex-start;">+ Add extra item</button>
+            <div class="notice n-warning"><span><b>Actual time is 40% over the estimate.</b> A reason is required, and Sara will be told the new amount before the invoice is issued.</span></div>
+            <div class="field"><label for="r">Reason for the difference (required)</label><textarea id="r" rows="2">Engraving needed a second pass for depth.</textarea></div>
+          </section>
+        </div>
+
+        <aside class="card stack" style="flex: 1 1 320px; gap: 16px;" aria-labelledby="inv">
+          <div class="row between"><h2 id="inv" class="h3">Draft invoice</h2><span class="badge b-neutral">Draft</span></div>
+          <div class="sm" style="display: grid; grid-template-columns: 1fr auto; gap: 10px 16px;">
+            <span>Laser time, 21 min × 0.300</span><span class="mono">6.300</span>
+            <span>Acrylic 3 mm sheet</span><span class="mono">6.000</span>
+            <span>Masking tape</span><span class="mono">0.250</span>
+            <span class="muted">Subtotal</span><span class="mono">12.550</span>
+            <span style="color: #1E6C37;">Student discount 20%</span><span class="mono" style="color: #1E6C37;">−2.510</span>
+            <span class="muted">Tax 16%</span><span class="mono">1.606</span>
+          </div>
+          <div class="hr"></div>
+          <div class="row between"><b>Total</b><b class="mono" style="font-size: 24px;">11.646 JOD</b></div>
+          <div class="row between xs muted"><span>Quote was</span><span class="mono">~9.744 JOD</span></div>
+          <label class="check"><input type="checkbox" checked> Notify Sara: ready for pickup</label>
+          <button class="btn btn-primary btn-block">Complete and issue invoice</button>
+          <button class="btn btn-secondary btn-block">Save draft</button>
+          <p class="xs muted">Once issued, the invoice can't be edited. Fix mistakes with a credit note.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

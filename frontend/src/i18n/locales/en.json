@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "FabLab",
+    "tagline": "Machine usage and billing"
+  },
+  "nav": {
+    "skipToContent": "Skip to main content",
+    "language": "Language",
+    "toDarkTheme": "Switch to dark theme",
+    "toLightTheme": "Switch to light theme"
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© {{year}} FabLab"
+  },
+  "auth": {
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "code": "Verification code"
+    },
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Use your FabLab account to submit jobs and see your invoices.",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "forgotPassword": "Forgot your password?",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "noAccount": "New to FabLab?",
+      "signup": "Create an account"
+    },
+    "mfa": {
+      "title": "Two-step verification",
+      "subtitle": "Enter the 6-digit code from your authenticator app.",
+      "submit": "Verify",
+      "submitting": "Verifying…",
+      "back": "Sign in with a different account"
+    },
+    "errors": {
+      "emailRequired": "Enter your email address.",
+      "emailInvalid": "Enter a valid email address, like name@example.com.",
+      "passwordRequired": "Enter your password.",
+      "passwordTooLong": "Passwords can't be longer than 128 characters.",
+      "codeInvalid": "Enter the 6 digits from your authenticator app.",
+      "codeIncorrect": "That code didn't work. Check that your phone's clock is correct and try again.",
+      "invalidCredentials": "The email or password is incorrect.",
+      "locked": "Too many failed attempts, so your account is locked for now. Try again later or reset your password.",
+      "tooManyAttempts": "Too many attempts. Wait a minute and try again.",
+      "network": "Can't reach the server. Check your connection and try again.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "page": {
+    "home": "You're signed in. Your dashboard is on its way.",
+    "comingSoon": "This page is coming soon.",
+    "notFound": "Page not found",
+    "backToSignIn": "Back to sign in"
+  }
+}

@@ -1,0 +1,44 @@
+name: Task
+description: A piece of work from the SRS (feature, page, model, infra).
+labels: []
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What this task delivers and why.
+    validations:
+      required: true
+  - type: input
+    id: refs
+    attributes:
+      label: Requirements
+      description: FR/NFR IDs, SRS sections or DECISIONS.md items.
+      placeholder: FR-42 to FR-48, SRS 3.6
+    validations:
+      required: true
+  - type: input
+    id: mockups
+    attributes:
+      label: Mockups
+      description: Matching files in design/screens/, if any.
+      placeholder: design/screens/StaffQueue.html
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Checks a reviewer can tick.
+      value: |
+        - [ ] 
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Frontend, Backend, Infra, Docs]
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Definition of done (SRS 13): Chrome console clean, inputs validated on both sides, en/ar/fr + RTL checked, backend tests, reviewed and merged, `make up` still works. Add the `area:*`, `mod:*` and `priority:*` labels and a milestone after creating."

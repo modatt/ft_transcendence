@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Walk-in counter — Staff</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Staff</span></div></a>
+    <div class="topend">
+      <span class="badge b-success">Live</span>
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <button class="iconbtn" aria-label="Notifications, 3 unread"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot">3</span></button>
+      <span class="avatar" aria-label="Omar Haddad">OH</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Staff">
+      <a href="StaffQueue.html">Queue board</a>
+      <a class="on" href="WalkIn.html">Walk-in counter</a>
+      <a href="JobsList.html">Jobs</a>
+      <a href="RecordPayment.html">Payments and cash-up</a>
+      <a href="StaffCustomers.html">Customers</a>
+      <a href="Certifications.html">Certifications</a>
+      <span class="label">Admin</span>
+      <a href="AdminMachines.html">Machines and prices</a>
+      <a href="AdminAnalytics.html">Analytics</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Walk-in counter</h1><p class="muted">Log a job for someone at the desk in under a minute.</p></div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <div class="stack" style="flex: 999 1 560px; min-width: 0; gap: 24px;">
+          <section class="card stack" aria-labelledby="c">
+            <div class="row between"><h2 id="c" class="h3">1. Customer</h2><button class="btn btn-ghost btn-sm">+ New walk-in customer</button></div>
+            <div class="field"><label for="s">Find by mobile, name or email</label><input id="s" value="079 55"></div>
+            <div class="tablebox">
+              <table class="t">
+                <tbody>
+                  <tr style="background: #F1F5FF;"><td><b>Khaled Tamimi</b><div class="xs muted">+962 7 9550 1180 · Public</div></td><td><span class="badge b-danger">Overdue 7.410 JOD</span></td><td class="end"><button class="btn btn-primary btn-sm">Selected</button></td></tr>
+                  <tr><td><b>Dana Nasser</b><div class="xs muted">+962 7 9552 2304 · Student</div></td><td><span class="badge b-success">No balance</span></td><td class="end"><button class="btn btn-secondary btn-sm">Select</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="notice n-warning"><span><b>Khaled has an overdue balance of 7.410 JOD.</b> Ask him to pay before starting a new job, or continue with a manager override.</span></div>
+          </section>
+
+          <section class="card stack" aria-labelledby="j">
+            <h2 id="j" class="h3">2. Job</h2>
+            <div class="grid3">
+              <div class="field"><label for="m">Machine</label><select id="m"><option>Trotec Speedy 400</option></select></div>
+              <div class="field"><label for="mt">Material</label><select id="mt"><option>Acrylic 3 mm (lab sheet)</option><option>Customer's own material</option></select></div>
+              <div class="field"><label for="qt">Sheets</label><input id="qt" type="number" value="1"></div>
+              <div class="field"><label for="mn">Estimated minutes</label><input id="mn" type="number" value="14"></div>
+              <div class="field"><label for="md">Runs it</label><select id="md"><option>Staff (Omar)</option><option>Customer (certified)</option></select></div>
+              <div class="field"><label for="fl">Design file</label><input id="fl" value="khaled-sign.svg"></div>
+            </div>
+            <div class="field"><label for="ds">Description</label><input id="ds" value="Shop sign, engraved and cut"></div>
+          </section>
+        </div>
+
+        <aside class="card stack" style="flex: 1 1 300px; gap: 16px;" aria-labelledby="q">
+          <h2 id="q" class="h3">Quote</h2>
+          <div class="sm" style="display: grid; grid-template-columns: 1fr auto; gap: 10px 16px;">
+            <span>Laser time, 15 min × 0.300</span><span class="mono">4.500</span>
+            <span>Acrylic 3 mm sheet</span><span class="mono">6.000</span>
+            <span class="muted">Subtotal</span><span class="mono">10.500</span>
+            <span class="muted">Tax 16%</span><span class="mono">1.680</span>
+          </div>
+          <div class="hr"></div>
+          <div class="row between"><b>Estimated total</b><b class="mono" style="font-size: 24px;">12.180 JOD</b></div>
+          <label class="check"><input type="checkbox" checked> Customer agreed to the terms verbally</label>
+          <a class="btn btn-primary btn-block" href="StaffQueue.html">Create and start now</a>
+          <a class="btn btn-secondary btn-block" href="StaffQueue.html">Add to queue</a>
+          <p class="xs muted">Khaled gets an SMS link to finish his profile.</p>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prices and discounts — Admin</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Admin</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <span class="avatar" aria-label="Lab manager">LM</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Admin">
+      <a href="AdminAnalytics.html">Analytics</a>
+      <a href="AdminMachines.html">Machines</a>
+      <a href="AdminMaterials.html">Materials</a>
+      <a class="on" href="AdminPrices.html">Prices and discounts</a>
+      <a href="AdminUsers.html">Users and roles</a>
+      <a href="AdminOrgs.html">Organizations and programs</a>
+      <a href="AdminAudit.html">Audit log</a>
+      <a href="AdminSettings.html">Settings</a>
+      <span class="label">Switch</span>
+      <a href="StaffQueue.html">Staff view</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Prices and discounts</h1><p class="muted">Price list in effect since Nov 1, 2026 · sample prices until the lab confirms</p></div>
+        <div class="row"><button class="btn btn-secondary">Schedule a new price list</button><button class="btn btn-primary">Save changes</button></div>
+      </div>
+      <div class="notice n-info"><span>Changes apply to new quotes only. Jobs already quoted keep the prices they were given.</span></div>
+
+      <section class="stack" aria-labelledby="pl">
+        <h2 id="pl" class="h3">Price list by customer category (JOD)</h2>
+        <p class="sm muted">Students and under-18s pay public prices; their 20% discount is added as its own line on the quote and invoice (see Discounts).</p>
+        <div class="tablebox">
+          <table class="t">
+            <thead><tr><th>Item</th><th>Unit</th><th class="end">Public</th><th class="end">SME / startup</th><th class="end">Internal</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Item"><b>PLA</b></td><td data-label="Unit">per g</td><td data-label="Public" class="end mono">0.040</td><td data-label="SME / startup" class="end mono">0.036</td><td data-label="Internal" class="end mono">0.020</td></tr>
+              <tr><td data-label="Item"><b>PETG</b></td><td data-label="Unit">per g</td><td data-label="Public" class="end mono">0.050</td><td data-label="SME / startup" class="end mono">0.045</td><td data-label="Internal" class="end mono">0.025</td></tr>
+              <tr><td data-label="Item"><b>Standard resin</b></td><td data-label="Unit">per ml</td><td data-label="Public" class="end mono">0.150</td><td data-label="SME / startup" class="end mono">0.135</td><td data-label="Internal" class="end mono">0.075</td></tr>
+              <tr><td data-label="Item"><b>FDM machine time</b></td><td data-label="Unit">per h</td><td data-label="Public" class="end mono">0.500</td><td data-label="SME / startup" class="end mono">0.450</td><td data-label="Internal" class="end mono">0.000</td></tr>
+              <tr><td data-label="Item"><b>Laser time</b></td><td data-label="Unit">per min</td><td data-label="Public" class="end mono">0.300</td><td data-label="SME / startup" class="end mono">0.270</td><td data-label="Internal" class="end mono">0.000</td></tr>
+              <tr><td data-label="Item"><b>CNC router time</b></td><td data-label="Unit">per h</td><td data-label="Public" class="end mono">6.000</td><td data-label="SME / startup" class="end mono">5.400</td><td data-label="Internal" class="end mono">0.000</td></tr>
+              <tr><td data-label="Item"><b>Acrylic 3 mm</b></td><td data-label="Unit">per sheet</td><td data-label="Public" class="end mono">6.000</td><td data-label="SME / startup" class="end mono">6.000</td><td data-label="Internal" class="end mono">6.000</td></tr>
+              <tr><td data-label="Item"><b>Operator time</b></td><td data-label="Unit">per h</td><td data-label="Public" class="end mono">2.000</td><td data-label="SME / startup" class="end mono">2.000</td><td data-label="Internal" class="end mono">0.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="grid2">
+        <section class="card stack" aria-labelledby="dc">
+          <div class="row between"><h2 id="dc" class="h3">Discounts and promo codes</h2><button class="btn btn-ghost btn-sm">+ Add</button></div>
+          <div class="tablebox">
+            <table class="t">
+              <thead><tr><th>Name</th><th>Applies to</th><th class="end">Off</th><th>Valid</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Name"><b>Student</b></td><td data-label="Applies to">Verified students</td><td data-label="Off" class="end mono">20%</td><td data-label="Valid" class="sm">Always</td></tr>
+                <tr><td data-label="Name"><b class="mono">MAKERWEEK</b></td><td data-label="Applies to">Everyone</td><td data-label="Off" class="end mono">10%</td><td data-label="Valid" class="sm">Nov 10–16</td></tr>
+                <tr><td data-label="Name"><b>Fab Academy</b></td><td data-label="Applies to">Program members</td><td data-label="Off" class="end mono">100%</td><td data-label="Valid" class="sm">Within allowance</td></tr>
+                <tr><td data-label="Name"><b>First job</b></td><td data-label="Applies to">New customers</td><td data-label="Off" class="end mono">1.000 JOD</td><td data-label="Valid" class="sm">Always</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <label class="check"><input type="checkbox"> Allow discounts to stack (off: only the largest one applies)</label>
+        </section>
+
+        <section class="card stack" aria-labelledby="rl">
+          <h2 id="rl" class="h3">Rules</h2>
+          <div class="grid2" style="gap: 16px;">
+            <div class="field"><label for="tx">Sales tax</label><select id="tx"><option>16%</option><option>0% (not registered)</option></select></div>
+            <div class="field"><label for="rd">Round amounts</label><select id="rd"><option>Half up, 3 decimals</option></select></div>
+            <div class="field"><label for="tm">Round machine time up to</label><select id="tm"><option>30 minutes</option><option>15 minutes</option></select></div>
+            <div class="field"><label for="df">Warn when actual differs by</label><select id="df"><option>More than 20%</option><option>More than 10%</option></select></div>
+          </div>
+          <fieldset style="border: 0; padding: 0; margin: 0;"><legend class="lbl" style="margin-bottom: 8px;">Failed jobs: who pays for material</legend>
+            <div class="stack" style="gap: 8px;">
+              <label class="check"><input type="radio" name="f" checked> Design problem: customer pays 100%</label>
+              <label class="check"><input type="radio" name="f2" checked> Machine fault: customer pays 0%</label>
+            </div>
+          </fieldset>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

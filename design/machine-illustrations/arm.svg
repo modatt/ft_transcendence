@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 320 200" role="img" aria-label="Picture of the robotic arm" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="garm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F5FF"/><stop offset="1" stop-color="#E0EAFF"/></linearGradient><pattern id="darm" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#99B6FB"/></pattern></defs><rect width="320" height="200" fill="url(#garm)"/><rect width="320" height="200" fill="url(#darm)" opacity=".55"/><ellipse cx="160" cy="178" rx="118" ry="9" fill="#020381" opacity=".10"/>
+<rect x="120" y="156" width="80" height="20" rx="4" fill="#020381"/><rect x="134" y="140" width="52" height="20" rx="6" fill="#2E4BB4"/>
+<path d="M152 144 128 82" stroke="#F8D749" stroke-width="22" stroke-linecap="round"/>
+<circle cx="160" cy="146" r="13" fill="#020381"/><circle cx="160" cy="146" r="5" fill="#C4D6FF"/>
+<path d="M128 82 206 58" stroke="#F8D749" stroke-width="18" stroke-linecap="round"/>
+<circle cx="128" cy="82" r="13" fill="#020381"/><circle cx="128" cy="82" r="5" fill="#C4D6FF"/>
+<circle cx="206" cy="58" r="10" fill="#020381"/>
+<path d="M214 62l14 10M214 62l8 16" stroke="#45484E" stroke-width="5" stroke-linecap="round"/>
+<rect x="226" y="80" width="16" height="12" rx="2" fill="#4A68D8"/></svg>

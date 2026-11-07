@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Audit log — Admin</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500&amp;family=Noto+Kufi+Arabic:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2E4BB4}a:hover{color:#203992}
+</style>
+<div class="app" style="display: flex; flex-direction: column;">
+  <header class="topbar">
+    <button class="iconbtn menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidemenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="Main.html"><svg class="logo" viewBox="0 0 44 44" width="44" height="44" role="img" aria-label="FabLab logo"><rect width="44" height="44" rx="10" fill="#F8D749"/><path d="M22 8.5 33.7 15.25v13.5L22 35.5 10.3 28.75v-13.5Z" fill="none" stroke="#020381" stroke-width="3.2" stroke-linejoin="round"/><circle cx="22" cy="22" r="4.6" fill="#020381"/></svg><div><b>FabLab</b><span>Admin</span></div></a>
+    <div class="topend">
+      <div class="lang" role="group" aria-label="Language"><button lang="ar" aria-label="العربية" aria-pressed="false">ع</button><button class="on" lang="en" aria-label="English" aria-pressed="true">EN</button><button lang="fr" aria-label="Français" aria-pressed="false">FR</button></div><button class="iconbtn" aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <span class="avatar" aria-label="Lab manager">LM</span>
+    </div>
+  </header>
+  <div class="shell">
+    <nav class="side" id="sidemenu" aria-label="Admin">
+      <a href="AdminAnalytics.html">Analytics</a>
+      <a href="AdminMachines.html">Machines</a>
+      <a href="AdminMaterials.html">Materials</a>
+      <a href="AdminPrices.html">Prices and discounts</a>
+      <a href="AdminUsers.html">Users and roles</a>
+      <a href="AdminOrgs.html">Organizations and programs</a>
+      <a class="on" href="AdminAudit.html">Audit log</a>
+      <a href="AdminSettings.html">Settings</a>
+      <span class="label">Switch</span>
+      <a href="StaffQueue.html">Staff view</a>
+    </nav>
+    <main class="content">
+      <div class="pagehead">
+        <div class="stack" style="gap: 4px;"><h1 class="h1">Audit log</h1><p class="muted">Every change to money, prices, roles and job status. Entries can't be edited or deleted.</p></div>
+        <button class="btn btn-secondary">Export CSV</button>
+      </div>
+      <div class="row" style="align-items: flex-end;">
+        <div class="field" style="width: 220px;"><label for="who">Who</label><select id="who"><option>Anyone</option><option>Omar Haddad</option><option>Rania Saleh</option></select></div>
+        <div class="field" style="width: 220px;"><label for="wh">What</label><select id="wh"><option>All changes</option><option>Invoices and payments</option><option>Prices</option><option>Roles</option><option>Logins</option></select></div>
+        <div class="field" style="width: 180px;"><label for="dt">When</label><select id="dt"><option>Today</option><option>Last 7 days</option></select></div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+        <div class="tablebox" style="flex: 999 1 560px; min-width: 0;">
+          <table class="t">
+            <thead><tr><th>Time</th><th>Who</th><th>Action</th><th>Record</th></tr></thead>
+            <tbody>
+              <tr style="background: #F1F5FF;"><td data-label="Time" class="mono sm">14:21:07</td><td data-label="Who">Omar H. <span class="xs muted">Staff</span></td><td data-label="Action"><span class="badge b-warning">Override</span> Actual time +40%</td><td data-label="Record" class="mono sm">Job 000131</td></tr>
+              <tr><td data-label="Time" class="mono sm">14:05:44</td><td data-label="Who">Rania S. <span class="xs muted">Finance</span></td><td data-label="Action"><span class="badge b-success">Payment</span> 5.000 JOD cash</td><td data-label="Record" class="mono sm">PAY-2026-00311</td></tr>
+              <tr><td data-label="Time" class="mono sm">13:16:02</td><td data-label="Who">Omar H. <span class="xs muted">Staff</span></td><td data-label="Action"><span class="badge b-info">Issued</span> Invoice 3.832 JOD</td><td data-label="Record" class="mono sm">INV-AMM-2026-00045</td></tr>
+              <tr><td data-label="Time" class="mono sm">12:40:19</td><td data-label="Who">Lab manager <span class="xs muted">Admin</span></td><td data-label="Action"><span class="badge b-brand">Price</span> PETG 0.045 → 0.050 / g</td><td data-label="Record" class="mono sm">Price list Nov 2026</td></tr>
+              <tr><td data-label="Time" class="mono sm">11:02:55</td><td data-label="Who">Lab manager <span class="xs muted">Admin</span></td><td data-label="Action"><span class="badge b-brand">Role</span> Dina F. Customer → Staff</td><td data-label="Record" class="mono sm">User 1042</td></tr>
+              <tr><td data-label="Time" class="mono sm">10:12:31</td><td data-label="Who">Rania S. <span class="xs muted">Finance</span></td><td data-label="Action"><span class="badge b-danger">Credit note</span> −1.200 JOD</td><td data-label="Record" class="mono sm">CN-AMM-2026-00004</td></tr>
+              <tr><td data-label="Time" class="mono sm">09:01:12</td><td data-label="Who">Omar H. <span class="xs muted">Staff</span></td><td data-label="Action"><span class="badge b-neutral">Login</span> 2FA passed, Chrome</td><td data-label="Record" class="mono sm">Session</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="card stack" style="flex: 1 1 340px; gap: 14px;" aria-labelledby="dt2">
+          <h2 id="dt2" class="h3">Change details</h2>
+          <div class="sm" style="display: grid; grid-template-columns: auto 1fr; gap: 6px 14px;"><span class="muted">When</span><span class="mono">Nov 3, 2026 14:21:07</span><span class="muted">Who</span><span>Omar Haddad (Staff)</span><span class="muted">From</span><span class="mono">10.24.3.17 · Chrome</span><span class="muted">Record</span><span class="mono">Job 000131</span></div>
+          <div class="grid2" style="gap: 10px;">
+            <div class="sunken" style="padding: 12px;"><div class="xs muted" style="margin-bottom: 6px;">BEFORE</div><pre class="mono" style="margin: 0; font-size: 12px; line-height: 18px; white-space: pre-wrap;">actual_minutes: null
+status: in_progress</pre></div>
+            <div class="sunken" style="padding: 12px; background: #FFFAE8;"><div class="xs muted" style="margin-bottom: 6px;">AFTER</div><pre class="mono" style="margin: 0; font-size: 12px; line-height: 18px; white-space: pre-wrap;">actual_minutes: 21
+status: completed
+reason: "Engraving needed a
+ second pass for depth."</pre></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
