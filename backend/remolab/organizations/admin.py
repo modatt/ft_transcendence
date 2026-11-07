@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Organization, Role, RolePermission, Permission
+from .models import Organization, OrganizationSetting, Role, RolePermission, Permission
 
 @admin.register(Organization)
 class OrganizationAdmin(admin.ModelAdmin):
@@ -30,4 +30,17 @@ class RolePermissionAdmin(admin.ModelAdmin):
     list_filter = ('role', )
     search_fields = ('role__name', 'permission__code') # go to related table__column search for column 
     readonly_fields = ('id', )
+
+@admin.register(OrganizationSetting)
+class OrganizationSettingAdmin(admin.ModelAdmin):
+    list_display = (
+        'organization_id',
+        'currency',
+        'tax_rate',
+        'timezone',
+        'default_locale',
+        'opening_time',
+        'closing_time',
+    )
+    search_fields = ('organization__name', 'currency', 'invoice_prefix')
 

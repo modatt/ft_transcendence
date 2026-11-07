@@ -76,6 +76,114 @@ class Organization(models.Model):
     def __str__(self):
         return f"{self.name} ({self.get_org_type_display()})"
 
+class OrganizationSetting(models.Model):
+    """
+    """
+    # organization_id: PK, FK, to Organization.id (1:1 with Organization)
+    organization_id = models.OneToOneField(
+        Organization,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        verbose_name="Organization ID"
+    )
+
+    # currency: CHAR(3), No
+    currency = models.CharField(
+        max_length=3, 
+        verbose_name="Currency"
+        help_text="ISO currency of every price and invoice of this lab",
+    )
+
+    # currency_decimals: INT, No
+    currency_decimals = models.PositiveBigIntegerField(
+        verbose_name="Curreny Decimals",
+        help_text="Rounding digits: JOD 3, EUR 2, CAD 2",
+    )
+
+    # tax_rate: DeCIMAL(5, 4), No
+    tax_rate = models.DecimalField(
+        max_digits=5,
+        decimal_places=4,
+        verbose_name="Tax Rate",
+        help_text="Default sales tax/ VAT",
+    )
+
+    # student_discount_pct: DECIMAL(5,4), No
+    student_discount_pct = models.DecimalField(
+        max_digits=5,
+        decimal_places=4,
+        verbose_name="Student Discount (%)",
+        help_text="Discount for role = student",
+    )
+    
+    # timezone: VARCHAR(40), No
+    timezone = models.CharField(
+        max_length=40,
+        verbose_name="Timezone",
+        help_text="IANA timezoe; timestamps stored UTC, shown in this zone",
+    )
+
+    default_locale = models.CharField(
+        max_length=2,
+        verbose_name="Default Locale",
+        help_text="Default UI language",
+    )
+
+    # weekend_days: VARCHAR(20), No
+    weekend_days = models.CharField(
+        max_length=20,
+        verbose_name="Weekend Days",
+        help_text="e.g. fri,sat (Jordan) or sat,sun",
+    )
+
+    # opening_time: TIME, No
+    opening_time = models.TimeField(
+        verbose_name="Opening Time",
+    )
+
+    # closing_time: TIME, No
+    closing_time = models.TimeField(
+        verbose_name="Closing Time",
+    )
+
+    # independent_use_age: INT, No
+    independent_use_age = models.PositiveSmallIntegerField(
+        verbose_name="Independent Use Age",
+        help_text="Below this age staff approval is required (flow: 16)",
+    )
+
+    # license_validity_months: INT, No
+    license_validity_months = models.PositiveIntegerField(
+        verbose_name="License Validity (Months)",
+        help_text="Default licence validity",
+    )
+
+    # quote_validity_min: INT, No
+    quote_validity_min = models.PositiveIntegerField(
+        verbose_name="Quote Validity (Minutes)",
+        help_text="Minutes a price quote stays valid",
+    )
+
+    # invoice_due_days: INT, No
+    invoice_due_days = models.PositiveIntegerField(
+        verbose_name="Invoice Due Days",
+        help_text="Days between issue and due date",
+    )
+
+    # invoice_prefix: VARCHAR(6), No
+    invoice_prefix = models.CharField(
+        max_length=6,
+        verbose_name="Invoice Prefix",
+        help_text="Invoice number prefix",
+    )
+
+    class Meta:
+        verbose_name = "Organization Setting"
+        verbose_name_plural = "Organization Settings"
+
+    def __str__(self):
+        return f"Settings for {self.organization.name}"
+
 # modat: Role, RolePermission, Permission tables.
 
 ## Permission Table
